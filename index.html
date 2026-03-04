@@ -55,6 +55,7 @@
     <li><a href="#about"        class="nav-link">Tentang</a></li>
     <li><a href="#education"    class="nav-link">Pendidikan</a></li>
     <li><a href="#skills"       class="nav-link">Skill</a></li>
+    <li><a href="#achievements" class="nav-link">Prestasi</a></li>
     <li><a href="#portfolio"    class="nav-link">Portofolio</a></li>
     <li><a href="#contact"      class="nav-link">Kontak</a></li>
   </ul>
@@ -69,6 +70,7 @@
   <a href="#about"        class="mobile-link" onclick="toggleMenu()">Tentang</a>
   <a href="#education"    class="mobile-link" onclick="toggleMenu()">Pendidikan</a>
   <a href="#skills"       class="mobile-link" onclick="toggleMenu()">Skill</a>
+  <a href="#achievements" class="mobile-link" onclick="toggleMenu()">Prestasi</a>
   <a href="#portfolio"    class="mobile-link" onclick="toggleMenu()">Portofolio</a>
   <a href="#contact"      class="mobile-link" onclick="toggleMenu()">Kontak</a>
 </div>
@@ -189,10 +191,22 @@
   </div>
 </section>
 
+<!-- ====== ACHIEVEMENTS ====== -->
+<section id="achievements" class="section">
+  <div class="container">
+    <p class="section-label" data-aos="fade-up">04 — Prestasi</p>
+    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Prestasi & <em>Pencapaian</em></h2>
+    <p class="text-[#8a90a0] text-sm font-light mb-12" data-aos="fade-up" data-aos-delay="120">Pencapaian yang diraih selama perjalanan akademik</p>
+
+    <div id="achievementsList" class="flex flex-col gap-4" data-aos="fade-up" data-aos-delay="150"></div>
+    <button class="add-btn edit-only" onclick="addAchievement()">+ Tambah Prestasi</button>
+  </div>
+</section>
+
 <!-- ====== PORTFOLIO (Proyek + Sertifikat) ====== -->
 <section id="portfolio" class="section section-alt">
   <div class="container">
-    <p class="section-label" data-aos="fade-up">04 — Portofolio</p>
+    <p class="section-label" data-aos="fade-up">05 — Portofolio</p>
     <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Proyek & <em>Sertifikat</em></h2>
     <p class="text-[#8a90a0] text-sm font-light mb-10" data-aos="fade-up" data-aos-delay="120">Karya dan bukti kompetensi yang telah dicapai</p>
 
@@ -239,7 +253,7 @@
 <!-- ====== CONTACT ====== -->
 <section id="contact" class="section">
   <div class="container">
-    <p class="section-label" data-aos="fade-up">05 — Kontak</p>
+    <p class="section-label" data-aos="fade-up">06 — Kontak</p>
     <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Mari <em>Terhubung</em></h2>
     <p class="text-[#8a90a0] text-sm font-light mb-12" data-aos="fade-up" data-aos-delay="120">Terbuka untuk diskusi, kolaborasi, atau sekadar menyapa!</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
@@ -247,7 +261,7 @@
       <div data-aos="fade-left" data-aos-delay="100">
         <div class="cta-card">
           <p class="font-mono text-[10px] text-[#4a5068] uppercase tracking-widest mb-3">Tertarik bekerja sama?</p>
-          <h3 class="font-display text-2xl font-light text-[#7eb8f7] mb-6 break-all" id="ctaEmail" data-field="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4d28202c24210d2e2223392225632e2220">[email&#160;protected]</a></h3>
+          <h3 class="font-display text-2xl font-light text-[#7eb8f7] mb-6 break-all" id="ctaEmail" data-field="email">email@contoh.com</h3>
           <a href="#" id="ctaEmailLink" class="btn-primary">Kirim Email</a>
         </div>
       </div>
@@ -301,4 +315,10 @@
 <!-- ====== EDIT TOOLBAR ====== -->
 <div id="editToolbar" class="edit-toolbar edit-only">
   <span class="font-mono text-[11px] text-[#7eb8f7] tracking-widest">✦ Edit Mode</span>
-  <button onclick="saveAllData()" class="toolbar-btn save-btn">💾 Simpan</butto
+  <button onclick="saveAllData()" class="toolbar-btn save-btn">💾 Simpan</button>
+  <a href="/" class="toolbar-btn exit-btn">✕ Keluar</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

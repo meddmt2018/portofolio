@@ -22,7 +22,7 @@ const defaultData = {
     angkatan: "2024",
     semester: "4",
     gpa: "3.70",
-    totalCerts: "1",
+    totalCerts: "3",
     status: "Aktif Kuliah",
     email: "24050974084@mhs.unesa.ac.id",
     photo: "img/foto.jpg"
@@ -40,6 +40,14 @@ const defaultData = {
     { id: 6, icon: "📊", name: "Analisis Data", level: 2, category: "Data" },
     { id: 7, icon: "🧩", name: "Problem Solving", level: 4, category: "Soft Skill" },
     { id: 8, icon: "🤝", name: "Kolaborasi Tim", level: 4, category: "Soft Skill" }
+  ],
+  achievements: [
+    { id: 1, title: "Juara 2 Hackathon Universitas", 
+      org: "Panitia Dies Natalis", 
+      year: "2024", 
+      type: "Kompetisi" },
+    { id: 2, title: "Beasiswa Prestasi Akademik", org: "Universitas Contoh", year: "2023", type: "Beasiswa" },
+    { id: 3, title: "Peserta Terbaik Workshop Web Dev", org: "Google Developer Club", year: "2023", type: "Workshop" }
   ],
   certificates: [
     { id: 1, name: "HTML Dasar", issuer: "Skilvul", date: "February 2026", highlighted: true, file: "docs/sertifikat_html_dasar.pdf", fileType: "pdf", fileName: "sertifikat_html-dasar.pdf" },
@@ -116,6 +124,7 @@ function renderAll() {
   renderProfile();
   renderEducation();
   renderSkills();
+  renderAchievements();
   renderProjects();
   renderCertificates();
   renderContacts();
@@ -230,6 +239,50 @@ function skillForm(s) {
     <div class="form-group"><label class="form-label">Level (1 Pemula — 5 Ahli)</label>
       <select class="form-select" id="sl">${[1,2,3,4,5].map(n => `<option value="${n}" ${s.level === n ? 'selected' : ''}>${n} — ${['Pemula','Dasar','Menengah','Mahir','Ahli'][n-1]}</option>`).join('')}</select></div>
     <div class="form-group"><label class="form-label">Kategori</label><input class="form-input" id="sc" value="${s.category || ''}" placeholder="Frontend / Backend / Soft Skill"></div>`;
+}
+
+// ====== ACHIEVEMENTS ======
+function renderAchievements() {
+  const c = document.getElementById('achievementsList');
+  if (!c) return;
+  c.innerHTML = data.achievements.map((a, i) => `
+    <div class="achievement-row" data-aos="fade-up" data-aos-delay="${i * 60}">
+      <div class="ach-index">0${i + 1}</div>
+      <div class="ach-content">
+        <div class="ach-title">${a.title}</div>
+        <div class="ach-org">${a.org}</div>
+        <div class="item-actions">
+          <button class="action-btn" onclick="editAch(${a.id})">✎ Edit</button>
+          <button class="action-btn delete" onclick="delItem('achievements',${a.id})">✕ Hapus</button>
+        </div>
+      </div>
+      <div class="ach-right">
+        <div class="ach-year">${a.year}</div>
+        <div class="ach-type">${a.type}</div>
+      </div>
+    </div>`).join('');
+  if (typeof AOS !== 'undefined') AOS.refresh();
+}
+
+function addAchievement() {
+  openModal('Tambah Prestasi', achForm({}), () => {
+    data.achievements.push({ id: Date.now(), title: gv('at'), org: gv('ao'), year: gv('ay'), type: gv('atp') });
+    renderAchievements(); saveAllData(); closeModal();
+  });
+}
+function editAch(id) {
+  const a = data.achievements.find(x => x.id === id);
+  openModal('Edit Prestasi', achForm(a || {}), () => {
+    if (a) { a.title = gv('at'); a.org = gv('ao'); a.year = gv('ay'); a.type = gv('atp'); }
+    renderAchievements(); saveAllData(); closeModal();
+  });
+}
+function achForm(a) {
+  return `
+    <div class="form-group"><label class="form-label">Nama Prestasi</label><input class="form-input" id="at" value="${a.title || ''}" placeholder="Juara 1 Hackathon..."></div>
+    <div class="form-group"><label class="form-label">Penyelenggara / Institusi</label><input class="form-input" id="ao" value="${a.org || ''}" placeholder="Nama Penyelenggara"></div>
+    <div class="form-group"><label class="form-label">Tahun</label><input class="form-input" id="ay" value="${a.year || ''}" placeholder="2024"></div>
+    <div class="form-group"><label class="form-label">Jenis</label><input class="form-input" id="atp" value="${a.type || ''}" placeholder="Kompetisi / Beasiswa / Workshop"></div>`;
 }
 
 // ====== TAB SWITCHING ======
