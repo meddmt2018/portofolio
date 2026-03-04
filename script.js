@@ -10,22 +10,22 @@ const isEditMode =
 // ====== DEFAULT DATA ======
 const defaultData = {
   profile: {
-    name: "Nama Lengkap Anda",
+    name: "Farrell Ahmed Dimitrie Dhiaul Aulia",
     greeting: "Halo, saya",
-    title: "Mahasiswa Teknik Informatika\nUniversitas Contoh",
+    title: "Mahasiswa S1 Pendidikan Teknologi Informasi",
     bio: "Berfokus pada pengembangan diri di bidang teknologi, dengan antusiasme tinggi dalam belajar hal-hal baru yang bermakna.",
     aboutText1: "Saya adalah mahasiswa yang percaya bahwa proses belajar yang konsisten adalah fondasi dari setiap pencapaian. Meskipun belum memiliki banyak pengalaman profesional, saya terus mengembangkan kemampuan teknis dan analitis secara mandiri.",
     aboutText2: "Keseharian saya banyak diisi dengan eksplorasi teknologi, mengerjakan tugas akademik dengan standar tinggi, serta mencari ilmu dari berbagai sumber — mulai dari dokumentasi, kursus online, hingga komunitas developer.",
     aboutText3: "Saya percaya bahwa integritas, ketekunan, dan semangat belajar adalah modal terbesar seorang mahasiswa untuk berkembang di dunia yang terus berubah.",
-    prodi: "Teknik Informatika",
-    univ: "Universitas Contoh",
-    angkatan: "2022",
-    semester: "6",
+    prodi: "Pendidikan Teknologi Informasi",
+    univ: "Universitas Negeri Surabaya",
+    angkatan: "2024",
+    semester: "4",
     gpa: "3.70",
-    totalCerts: "3",
+    totalCerts: "1",
     status: "Aktif Kuliah",
-    email: "email@contoh.com",
-    photo: ""
+    email: "24050974084@mhs.unesa.ac.id",
+    photo: "img/foto.jpg"
   },
   education: [
     { id: 1, year: "2022 — Sekarang", title: "S1 Teknik Informatika", institution: "Universitas Contoh", desc: "Fokus pada rekayasa perangkat lunak. IPK: 3.70 / 4.00" },
@@ -42,10 +42,7 @@ const defaultData = {
     { id: 8, icon: "🤝", name: "Kolaborasi Tim", level: 4, category: "Soft Skill" }
   ],
   certificates: [
-    { id: 1, name: "Front-End Web Development", issuer: "Dicoding Indonesia", date: "Des 2023", highlighted: true, file: null, fileType: null, fileName: null },
-    { id: 2, name: "Python for Data Science", issuer: "Coursera · IBM", date: "Sep 2023", highlighted: true, file: null, fileType: null, fileName: null },
-    { id: 3, name: "UI/UX Design Fundamentals", issuer: "Google UX Design Certificate", date: "Jun 2023", highlighted: true, file: null, fileType: null, fileName: null },
-    { id: 4, name: "Database Design & SQL", issuer: "Oracle Academy", date: "Mar 2023", highlighted: false, file: null, fileType: null, fileName: null }
+    { id: 1, name: "HTML Dasar", issuer: "Skilvul", date: "February 2026", highlighted: true, file: "docs/sertifikat_html_dasar.pdf", fileType: "pdf", fileName: "sertifikat_html-dasar.pdf" },
   ],
   projects: [
     { id: 1, emoji: "🌐", title: "Website Portofolio Pribadi", desc: "Website portofolio dengan tema luar angkasa yang elegan, dibangun tanpa framework berat.", tags: ["HTML", "CSS", "JavaScript"], linkDemo: "#", linkCode: "#" },
