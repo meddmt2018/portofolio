@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <!-- Alpine.js -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Sora:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Cormorant Garamond', 'serif'],
+            body: ['Sora', 'sans-serif'],
+            mono: ['DM Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-body overflow-x-hidden">
+
+<!-- Stars -->
+<div class="fixed inset-0 z-0 pointer-events-none">
+  <canvas id="starsCanvas"></canvas>
+</div>
+
+<!-- Edit Banner -->
+<div id="editBanner" class="edit-banner" style="display:none">
+  <span class="font-mono text-xs tracking-widest">✦ MODE EDIT — Klik teks untuk mengedit</span>
+  <a href="/" class="exit-edit-btn">Keluar Edit</a>
+</div>
+
+<!-- NAV -->
+<nav id="nav" class="nav">
+  <div class="flex items-center gap-3 font-display text-xl text-[#e8eaf0]">
+    <span class="text-[#7eb8f7] text-sm anim-pulse">✦</span>
+    <span id="navName" data-field="name">Nama Anda</span>
+  </div>
+  <ul class="hidden md:flex gap-8 list-none">
+    <li><a href="#about"        class="nav-link">Tentang</a></li>
+    <li><a href="#education"    class="nav-link">Pendidikan</a></li>
+    <li><a href="#skills"       class="nav-link">Skill</a></li>
+    <li><a href="#achievements" class="nav-link">Prestasi</a></li>
+    <li><a href="#portfolio"    class="nav-link">Portofolio</a></li>
+    <li><a href="#contact"      class="nav-link">Kontak</a></li>
+  </ul>
+  <!-- Hamburger (mobile) -->
+  <button class="md:hidden hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu">
+  <a href="#about"        class="mobile-link" onclick="toggleMenu()">Tentang</a>
+  <a href="#education"    class="mobile-link" onclick="toggleMenu()">Pendidikan</a>
+  <a href="#skills"       class="mobile-link" onclick="toggleMenu()">Skill</a>
+  <a href="#achievements" class="mobile-link" onclick="toggleMenu()">Prestasi</a>
+  <a href="#portfolio"    class="mobile-link" onclick="toggleMenu()">Portofolio</a>
+  <a href="#contact"      class="mobile-link" onclick="toggleMenu()">Kontak</a>
+</div>
+
+<!-- ====== HERO ====== -->
+<section id="hero" class="relative min-h-screen flex items-center z-[1] overflow-hidden">
+  <div class="max-w-5xl mx-auto px-12 w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-32">
+    <div class="hero-content">
+      <p class="font-mono text-xs text-[#7eb8f7] tracking-[0.18em] uppercase mb-5" id="heroGreeting" data-field="greeting">Halo, saya</p>
+      <h1 class="font-display font-light hero-name mb-4" id="heroName" data-field="name">Nama Lengkap Anda</h1>
+      <p class="font-mono text-[13px] text-[#8a90a0] tracking-wide mb-6 leading-relaxed" id="heroTitle" data-field="title">Mahasiswa Teknik Informatika<br>Universitas Contoh</p>
+      <div class="w-12 h-px bg-[#7eb8f7] opacity-40 mb-6"></div>
+      <p class="text-[#8a90a0] text-sm font-light leading-loose mb-10 max-w-sm" id="heroBio" data-field="bio">Berfokus pada pengembangan diri di bidang teknologi, dengan antusiasme tinggi dalam belajar hal-hal baru yang bermakna.</p>
+      <div class="flex gap-4 flex-wrap">
+        <a href="#contact" class="btn-primary">Hubungi Saya</a>
+        <a href="#portfolio" class="btn-ghost">Lihat Portofolio</a>
+      </div>
+    </div>
+    <!-- Hero right side -->
+    <div class="hidden md:flex justify-end items-center">
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <div class="hero-photo-wrap" id="heroPhotoWrap">
+            <div id="heroPhotoPlaceholder" class="flex flex-col items-center gap-2">
+              <span class="text-4xl text-[#4a5068]">◎</span>
+              <span class="font-mono text-xs text-[#4a5068]">Foto Anda</span>
+            </div>
+            <img id="heroPhoto" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:inherit;">
+          </div>
+          <div class="hero-card-stats">
+            <div class="hero-stat">
+              <span class="hero-stat-num" id="statSemester" data-field="semester">6</span>
+              <span class="hero-stat-label">Semester</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" id="statGpa" data-field="gpa">3.70</span>
+              <span class="hero-stat-label">IPK</span>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span class="hero-stat-num" id="statCerts" data-field="totalCerts">3</span>
+              <span class="hero-stat-label">Sertifikat</span>
+            </div>
+          </div>
+        </div>
+        <button class="edit-only photo-upload-btn mt-3 w-full" onclick="document.getElementById('photoInput').click()">↑ Ganti Foto</button>
+        <input type="file" id="photoInput" accept="image/*" style="display:none">
+      </div>
+    </div>
+  </div>
+  <!-- Decorative orbit -->
+  <div class="hero-orbit">
+    <div class="orbit-ring ring-1"></div>
+    <div class="orbit-ring ring-2"></div>
+  </div>
+</section>
+
+<!-- ====== ABOUT ====== -->
+<section id="about" class="section section-alt">
+  <div class="container">
+    <p class="section-label" data-aos="fade-up">01 — Tentang Saya</p>
+    <h2 class="section-title mb-12" data-aos="fade-up" data-aos-delay="80">Sekilas <em>Tentang Saya</em></h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="md:col-span-2 space-y-4" data-aos="fade-right" data-aos-delay="100">
+        <p class="about-para" id="aboutText1" data-field="aboutText1">Saya adalah mahasiswa yang percaya bahwa proses belajar yang konsisten adalah fondasi dari setiap pencapaian. Meskipun belum memiliki banyak pengalaman profesional, saya terus mengembangkan kemampuan teknis dan analitis secara mandiri.</p>
+        <p class="about-para" id="aboutText2" data-field="aboutText2">Keseharian saya banyak diisi dengan eksplorasi teknologi, mengerjakan tugas akademik dengan standar tinggi, serta mencari ilmu dari berbagai sumber — mulai dari dokumentasi, kursus online, hingga komunitas developer.</p>
+        <p class="about-para" id="aboutText3" data-field="aboutText3">Saya percaya bahwa integritas, ketekunan, dan semangat belajar adalah modal terbesar seorang mahasiswa untuk berkembang di dunia yang terus berubah.</p>
+      </div>
+      <div class="flex flex-col gap-4" data-aos="fade-left" data-aos-delay="150">
+        <div class="info-card">
+          <span class="info-card-label">Program Studi</span>
+          <span class="info-card-val" id="infoProdi" data-field="prodi">Teknik Informatika</span>
+        </div>
+        <div class="info-card">
+          <span class="info-card-label">Universitas</span>
+          <span class="info-card-val" id="infoUniv" data-field="univ">Universitas Contoh</span>
+        </div>
+        <div class="info-card">
+          <span class="info-card-label">Angkatan</span>
+          <span class="info-card-val" id="infoAngkatan" data-field="angkatan">2022</span>
+        </div>
+        <div class="info-card">
+          <span class="info-card-label">IPK</span>
+          <span class="info-card-val text-[#7eb8f7]" id="infoGpa2" data-field="gpa">3.70 / 4.00</span>
+        </div>
+        <div class="info-card">
+          <span class="info-card-label">Status</span>
+          <span class="info-card-val">
+            <span class="status-dot"></span>
+            <span id="infoStatus" data-field="status">Aktif Kuliah</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== EDUCATION ====== -->
+<section id="education" class="section">
+  <div class="container">
+    <p class="section-label" data-aos="fade-up">02 — Pendidikan</p>
+    <h2 class="section-title mb-12" data-aos="fade-up" data-aos-delay="80">Riwayat <em>Pendidikan</em></h2>
+    <div id="educationTimeline" class="timeline" data-aos="fade-up" data-aos-delay="120"></div>
+    <button class="add-btn edit-only" onclick="addEducation()">+ Tambah Pendidikan</button>
+  </div>
+</section>
+
+<!-- ====== SKILLS ====== -->
+<section id="skills" class="section section-alt">
+  <div class="container">
+    <p class="section-label" data-aos="fade-up">03 — Keahlian</p>
+    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Skill</h2>
+    <p class="text-[#8a90a0] text-sm font-light mb-12" data-aos="fade-up" data-aos-delay="120">Kemampuan teknis dan non-teknis yang terus diasah</p>
+    <div id="skillsGrid" class="skills-grid"></div>
+    <button class="add-btn edit-only" onclick="addSkill()">+ Tambah Skill</button>
+  </div>
+</section>
+
+<!-- ====== ACHIEVEMENTS ====== -->
+<section id="achievements" class="section">
+  <div class="container">
+    <p class="section-label" data-aos="fade-up">04 — Prestasi</p>
+    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Prestasi & <em>Pencapaian</em></h2>
+    <p class="text-[#8a90a0] text-sm font-light mb-12" data-aos="fade-up" data-aos-delay="120">Pencapaian yang diraih selama perjalanan akademik</p>
+
+    <div id="achievementsList" class="flex flex-col gap-4" data-aos="fade-up" data-aos-delay="150"></div>
+    <button class="add-btn edit-only" onclick="addAchievement()">+ Tambah Prestasi</button>
+  </div>
+</section>
+
+<!-- ====== PORTFOLIO (Proyek + Sertifikat) ====== -->
+<section id="portfolio" class="section section-alt">
+  <div class="container">
+    <p class="section-label" data-aos="fade-up">05 — Portofolio</p>
+    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Proyek & <em>Sertifikat</em></h2>
+    <p class="text-[#8a90a0] text-sm font-light mb-10" data-aos="fade-up" data-aos-delay="120">Karya dan bukti kompetensi yang telah dicapai</p>
+
+    <!-- Tab Switcher -->
+    <div class="portfolio-tabs" data-aos="fade-up" data-aos-delay="150">
+      <button class="tab-btn active" id="tabProjects" onclick="switchTab('projects')">
+        <span class="tab-icon">⚡</span> Proyek
+      </button>
+      <button class="tab-btn" id="tabCerts" onclick="switchTab('certs')">
+        <span class="tab-icon">🏅</span> Sertifikat
+      </button>
+    </div>
+
+    <!-- ===== PROJECTS PANEL ===== -->
+    <div id="panelProjects" class="tab-panel">
+      <div id="projectsGrid" class="projects-grid"></div>
+      <button class="add-btn edit-only" onclick="addProject()">+ Tambah Proyek</button>
+    </div>
+
+    <!-- ===== CERTIFICATES PANEL ===== -->
+    <div id="panelCerts" class="tab-panel hidden">
+      <!-- Highlighted 3 -->
+      <div id="certsHighlight" class="certs-grid"></div>
+
+      <!-- Toggle all -->
+      <div class="text-center mt-10">
+        <button class="btn-ghost" id="toggleCertsBtn" onclick="toggleAllCerts()" style="display:none">
+          <span id="toggleCertsText">Lihat Semua Sertifikat</span>
+          <span id="toggleCertsIcon" class="ml-1">↓</span>
+        </button>
+      </div>
+
+      <!-- All certs -->
+      <div id="certsAll" class="hidden mt-10 pt-10" style="border-top:1px solid rgba(255,255,255,0.07)">
+        <div id="certsAllGrid" class="certs-grid"></div>
+      </div>
+
+      <button class="add-btn edit-only" onclick="addCertificate()">+ Tambah Sertifikat</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section id="contact" class="section">
+  <div class="container">
+    <p class="section-label" data-aos="fade-up">06 — Kontak</p>
+    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Mari <em>Terhubung</em></h2>
+    <p class="text-[#8a90a0] text-sm font-light mb-12" data-aos="fade-up" data-aos-delay="120">Terbuka untuk diskusi, kolaborasi, atau sekadar menyapa!</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+      <div id="contactLinks" class="flex flex-col gap-3" data-aos="fade-right"></div>
+      <div data-aos="fade-left" data-aos-delay="100">
+        <div class="cta-card">
+          <p class="font-mono text-[10px] text-[#4a5068] uppercase tracking-widest mb-3">Tertarik bekerja sama?</p>
+          <h3 class="font-display text-2xl font-light text-[#7eb8f7] mb-6 break-all" id="ctaEmail" data-field="email">email@contoh.com</h3>
+          <a href="#" id="ctaEmailLink" class="btn-primary">Kirim Email</a>
+        </div>
+      </div>
+    </div>
+    <button class="add-btn edit-only" onclick="addContact()">+ Tambah Kontak</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative z-[1] py-10" style="border-top:1px solid rgba(255,255,255,0.07)">
+  <div class="max-w-5xl mx-auto px-12 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <span class="text-[#7eb8f7] text-xs">✦</span>
+      <span class="font-display text-[#8a90a0] text-lg" id="footerName">Nama Anda</span>
+    </div>
+    <p class="font-mono text-[11px] text-[#4a5068] tracking-wide">Dibuat dengan semangat & kopi ☕</p>
+  </div>
+</footer>
+
+<!-- ====== CERTIFICATE VIEWER MODAL ====== -->
+<div id="certViewerOverlay" onclick="closeCertViewer()" class="viewer-overlay" style="display:none">
+  <div onclick="event.stopPropagation()" class="viewer-modal">
+    <div class="viewer-header">
+      <div>
+        <h3 class="font-display text-xl font-light text-[#e8eaf0]" id="certViewerTitle">Sertifikat</h3>
+        <p class="font-mono text-xs text-[#4a5068] mt-1" id="certViewerMeta"></p>
+      </div>
+      <div class="flex items-center gap-3">
+        <a id="certDownloadBtn" href="#" download class="btn-ghost text-xs py-2 px-4">↓ Unduh</a>
+        <button onclick="closeCertViewer()" class="viewer-close">✕</button>
+      </div>
+    </div>
+    <div id="certViewerContent" class="viewer-body"></div>
+  </div>
+</div>
+
+<!-- ====== EDIT MODAL ====== -->
+<div id="modalOverlay" class="modal-overlay" onclick="closeModal()"></div>
+<div id="editModal" class="modal">
+  <div class="modal-header">
+    <h3 class="font-display text-xl font-light text-[#e8eaf0]" id="modalTitle">Edit</h3>
+    <button onclick="closeModal()" class="modal-close-btn">✕</button>
+  </div>
+  <div id="modalBody" class="modal-body"></div>
+  <div class="modal-footer">
+    <button class="btn-ghost py-2 px-5 text-sm" onclick="closeModal()">Batal</button>
+    <button class="btn-primary py-2 px-5 text-sm" onclick="saveModal()">Simpan</button>
+  </div>
+</div>
+
+<!-- ====== EDIT TOOLBAR ====== -->
+<div id="editToolbar" class="edit-toolbar edit-only">
+  <span class="font-mono text-[11px] text-[#7eb8f7] tracking-widest">✦ Edit Mode</span>
+  <button onclick="saveAllData()" class="toolbar-btn save-btn">💾 Simpan</button>
+  <a href="/" class="toolbar-btn exit-btn">✕ Keluar</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
