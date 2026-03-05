@@ -45,7 +45,7 @@ const defaultData = {
     { id: 1, name: "HTML Dasar", issuer: "Skilvul", date: "February 2026", highlighted: true, file: "docs/sertifikat_html_dasar.pdf", fileType: "pdf", fileName: "sertifikat_html-dasar.pdf" },
   ],
   projects: [
-    { id: 1, emoji: "🌐", title: "Website Portofolio Pribadi", desc: "Website portofolio dengan tema luar angkasa yang elegan, dibangun tanpa framework berat.", tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Alpine.js"], linkDemo: "#", linkCode: "#" },
+    { id: 1, emoji: "🌐", title: "Website Portofolio Pribadi", desc: "Website portofolio dengan tema luar angkasa yang elegan, dibangun tanpa framework berat.", tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Alpine.js"], linkDemo: "https://ahmed-dimitrie.netlify.app", linkCode: "https://github.com/meddmt2018/portofolio" },
   ],
   contacts: [
     { id: 1, icon: "📧", label: "Email", value: "med.dmt2018@gmail.com", href: "mailto:med.dmt2018@gmail.com" },
