@@ -41,14 +41,6 @@ const defaultData = {
     { id: 7, icon: "🧩", name: "Problem Solving", level: 4, category: "Soft Skill" },
     { id: 8, icon: "🤝", name: "Kolaborasi Tim", level: 4, category: "Soft Skill" }
   ],
-  achievements: [
-    { id: 1, title: "Juara 2 Hackathon Universitas", 
-      org: "Panitia Dies Natalis", 
-      year: "2024", 
-      type: "Kompetisi" },
-    { id: 2, title: "Beasiswa Prestasi Akademik", org: "Universitas Contoh", year: "2023", type: "Beasiswa" },
-    { id: 3, title: "Peserta Terbaik Workshop Web Dev", org: "Google Developer Club", year: "2023", type: "Workshop" }
-  ],
   certificates: [
     { id: 1, name: "HTML Dasar", issuer: "Skilvul", date: "February 2026", highlighted: true, file: "docs/sertifikat_html_dasar.pdf", fileType: "pdf", fileName: "sertifikat_html-dasar.pdf" },
   ],
