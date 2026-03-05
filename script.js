@@ -32,14 +32,14 @@ const defaultData = {
     { id: 2, year: "2019 — 2022", title: "SMA", institution: "SMA Negeri Contoh", desc: "Jurusan IPA. Aktif dalam kegiatan olimpiade sains komputer." }
   ],
   skills: [
-    { id: 1, icon: "💻", name: "Web Development", level: 4, category: "Frontend" },
-    { id: 2, icon: "🎨", name: "UI / UX Design", level: 3, category: "Design" },
-    { id: 3, icon: "🐍", name: "Python", level: 4, category: "Programming" },
-    { id: 4, icon: "🗄️", name: "SQL & Database", level: 3, category: "Backend" },
-    { id: 5, icon: "⚙️", name: "Git & Version Control", level: 3, category: "Tools" },
+    { id: 1, icon: "💻", name: "Web Development", level: 2, category: "Frontend" },
+    { id: 2, icon: "🎨", name: "UI / UX Design", level: 2, category: "Design" },
+    { id: 3, icon: "🐍", name: "Python", level: 1, category: "Programming" },
+    { id: 4, icon: "🗄️", name: "SQL & Database", level: 1, category: "Backend" },
+    { id: 5, icon: "⚙️", name: "Git & Version Control", level: 1, category: "Tools" },
     { id: 6, icon: "📊", name: "Analisis Data", level: 2, category: "Data" },
-    { id: 7, icon: "🧩", name: "Problem Solving", level: 4, category: "Soft Skill" },
-    { id: 8, icon: "🤝", name: "Kolaborasi Tim", level: 4, category: "Soft Skill" }
+    { id: 7, icon: "🧩", name: "Problem Solving", level: 2, category: "Soft Skill" },
+    { id: 8, icon: "🤝", name: "Kolaborasi Tim", level: 3, category: "Soft Skill" }
   ],
   certificates: [
     { id: 1, name: "HTML Dasar", issuer: "Skilvul", date: "February 2026", highlighted: true, file: "docs/sertifikat_html_dasar.pdf", fileType: "pdf", fileName: "sertifikat_html-dasar.pdf" },
