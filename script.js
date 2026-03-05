@@ -28,8 +28,8 @@ const defaultData = {
     photo: "img/foto.jpg"
   },
   education: [
-    { id: 1, year: "2022 — Sekarang", title: "S1 Teknik Informatika", institution: "Universitas Contoh", desc: "Fokus pada rekayasa perangkat lunak. IPK: 3.70 / 4.00" },
-    { id: 2, year: "2019 — 2022", title: "SMA", institution: "SMA Negeri Contoh", desc: "Jurusan IPA. Aktif dalam kegiatan olimpiade sains komputer." }
+    { id: 1, year: "2024 — Sekarang", title: "S1 Pendidikan Teknologi Informasi", institution: "Universitas Negeri Surabaya", desc: "Fokus pada rekayasa perangkat lunak. IPK: 3.70 / 4.00" },
+    { id: 2, year: "2019 — 2024", title: "SMA", institution: "MA Tahfizhul Qura'an Isy Karima", desc: "Jurusan IPA. Aktif dalam kegiatan akademik di lingkungan pesantren." }
   ],
   skills: [
     { id: 1, icon: "💻", name: "Web Development", level: 2, category: "Frontend" },
@@ -50,9 +50,9 @@ const defaultData = {
     { id: 3, emoji: "🤖", title: "Chatbot FAQ Kampus", desc: "Chatbot berbasis aturan (rule-based) untuk menjawab pertanyaan umum seputar kampus.", tags: ["Python", "Flask", "NLTK"], linkDemo: "", linkCode: "#" }
   ],
   contacts: [
-    { id: 1, icon: "📧", label: "Email", value: "email@contoh.com", href: "mailto:email@contoh.com" },
-    { id: 2, icon: "💼", label: "LinkedIn", value: "linkedin.com/in/username", href: "https://linkedin.com" },
-    { id: 3, icon: "🐙", label: "GitHub", value: "github.com/username", href: "https://github.com" }
+    { id: 1, icon: "📧", label: "Email", value: "med.dmt2018@gmail.com", href: "mailto:med.dmt2018@gmail.com" },
+    { id: 2, icon: "📷", label: "Instagram", value: "@med_dmt", href: "https://instagram.com/med_dmt" },
+    { id: 3, icon: "🐙", label: "GitHub", value: "github.com/meddmt2018", href: "https://github.com/meddmt2018" }
   ]
 };
 
