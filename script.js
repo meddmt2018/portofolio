@@ -45,9 +45,7 @@ const defaultData = {
     { id: 1, name: "HTML Dasar", issuer: "Skilvul", date: "February 2026", highlighted: true, file: "docs/sertifikat_html_dasar.pdf", fileType: "pdf", fileName: "sertifikat_html-dasar.pdf" },
   ],
   projects: [
-    { id: 1, emoji: "🌐", title: "Website Portofolio Pribadi", desc: "Website portofolio dengan tema luar angkasa yang elegan, dibangun tanpa framework berat.", tags: ["HTML", "CSS", "JavaScript"], linkDemo: "#", linkCode: "#" },
-    { id: 2, emoji: "📊", title: "Sistem Informasi Akademik", desc: "Aplikasi web sederhana untuk manajemen data mahasiswa dan nilai akademik.", tags: ["Laravel", "MySQL", "Tailwind"], linkDemo: "", linkCode: "#" },
-    { id: 3, emoji: "🤖", title: "Chatbot FAQ Kampus", desc: "Chatbot berbasis aturan (rule-based) untuk menjawab pertanyaan umum seputar kampus.", tags: ["Python", "Flask", "NLTK"], linkDemo: "", linkCode: "#" }
+    { id: 1, emoji: "🌐", title: "Website Portofolio Pribadi", desc: "Website portofolio dengan tema luar angkasa yang elegan, dibangun tanpa framework berat.", tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Alpine.js"], linkDemo: "#", linkCode: "#" },
   ],
   contacts: [
     { id: 1, icon: "📧", label: "Email", value: "med.dmt2018@gmail.com", href: "mailto:med.dmt2018@gmail.com" },
