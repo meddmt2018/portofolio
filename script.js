@@ -181,6 +181,10 @@ function renderProfile() {
     const ph = document.getElementById('heroPhotoPlaceholder');
     if (img) { img.src = p.photo; img.style.display = 'block'; }
     if (ph) ph.style.display = 'none';
+    const imgM = document.getElementById('heroPhotoMobile');
+    const phM = document.getElementById('heroPhotoPlaceholderMobile');
+    if (imgM) { imgM.src = p.photo; imgM.style.display = 'block'; }
+    if (phM) phM.style.display = 'none';
   }
 }
 function setText(id, v) { const el = document.getElementById(id); if (el) el.textContent = v || ''; }
@@ -741,6 +745,10 @@ function initPhotoUpload() {
       const ph = document.getElementById('heroPhotoPlaceholder');
       if (img) { img.src = e.target.result; img.style.display = 'block'; }
       if (ph) ph.style.display = 'none';
+      const imgM = document.getElementById('heroPhotoMobile');
+      const phM = document.getElementById('heroPhotoPlaceholderMobile');
+      if (imgM) { imgM.src = e.target.result; imgM.style.display = 'block'; }
+      if (phM) phM.style.display = 'none';
       saveAllData();
     };
     reader.readAsDataURL(file);
@@ -897,47 +905,44 @@ function initSlideUp() {
 function initFloatingBadges() {
   const badgeIds = ['floatBadge1','floatBadge2','floatBadge3','floatBadge4'];
   const mobileBadgeIds = ['mobileBadge1','mobileBadge2','mobileBadge3','mobileBadge4'];
-  const allIds = [...badgeIds, ...mobileBadgeIds];
   const skills = data.skills.map(s => s.name);
   if (!skills.length) return;
 
-  // Init all badges
-  allIds.forEach((id, i) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = skills[i % skills.length];
-  });
+  let offset = 0;
+  let turn = 0; // 0 = ganti badge 0&1, 1 = ganti badge 2&3
 
-  // Rotate ONE badge at a time (desktop + mobile in sync)
-  let nextSkill = allIds.length % skills.length;
-  let nextBadge = 0;
-
-  setInterval(() => {
-    // Rotate desktop badge
-    const id = badgeIds[nextBadge % badgeIds.length];
-    const el = document.getElementById(id);
-    if (el) {
+  function fadePair(ids, pairStart) {
+    [ids[pairStart], ids[pairStart + 1]].forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (!el) return;
       el.classList.add('badge-fade-out');
       setTimeout(() => {
-        el.textContent = skills[nextSkill % skills.length];
+        el.textContent = skills[(offset + i) % skills.length];
         el.classList.remove('badge-fade-out');
         el.classList.add('badge-fade-in');
         setTimeout(() => el.classList.remove('badge-fade-in'), 600);
       }, 400);
-    }
-    // Rotate mobile badge (same index)
-    const mid = mobileBadgeIds[nextBadge % mobileBadgeIds.length];
-    const mel = document.getElementById(mid);
-    if (mel) {
-      mel.classList.add('badge-fade-out');
-      setTimeout(() => {
-        mel.textContent = skills[nextSkill % skills.length];
-        mel.classList.remove('badge-fade-out');
-        mel.classList.add('badge-fade-in');
-        setTimeout(() => mel.classList.remove('badge-fade-in'), 600);
-      }, 400);
-    }
-    nextSkill = (nextSkill + 1) % skills.length;
-    nextBadge = (nextBadge + 1) % badgeIds.length;
+    });
+  }
+
+  // Init semua badge
+  badgeIds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = skills[i % skills.length];
+  });
+  mobileBadgeIds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = skills[i % skills.length];
+  });
+  offset = 4 % skills.length;
+
+  // Ganti 2 badge sekaligus, bergantian pasangan
+  setInterval(() => {
+    const pairStart = turn === 0 ? 0 : 2;
+    fadePair(badgeIds, pairStart);
+    fadePair(mobileBadgeIds, pairStart);
+    offset = (offset + 2) % skills.length;
+    turn = turn === 0 ? 1 : 0;
   }, 3000);
 }
 
