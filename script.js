@@ -770,29 +770,17 @@ function initStars() {
 
   function makeStars() {
     stars = [];
-    const n = Math.floor((canvas.width * canvas.height) / 2800);
+    const n = Math.floor((canvas.width * canvas.height) / 4000);
     for (let i = 0; i < n; i++) {
-      const size = Math.random();
-      // 70% kecil, 20% sedang, 10% besar+glow
-      const r = size < 0.7 ? Math.random() * 0.8 + 0.2
-               : size < 0.9 ? Math.random() * 1.2 + 0.8
-               : Math.random() * 1.8 + 1.4;
-      // Warna bintang: putih, biru muda, sedikit kuning (seperti asli)
-      const colorRoll = Math.random();
-      const color = colorRoll < 0.6 ? '220,230,255'
-                  : colorRoll < 0.85 ? '180,210,255'
-                  : '255,240,200';
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        r,
-        color,
-        o: Math.random() * 0.5 + 0.2,   // lebih terang: min 0.4
-        sp: Math.random() * 0.018 + 0.003,
+        r: Math.random() * 1.5 + 0.1,
+        o: Math.random() * 0.7 + 0.1,
+        sp: Math.random() * 0.02 + 0.004,
         ph: Math.random() * Math.PI * 2,
-        vx: (Math.random() - 0.5) * 0.04,
-        vy: (Math.random() - 0.5) * 0.04,
-        glow: r > 1.4  // bintang besar dapat glow
+        vx: (Math.random() - 0.5) * 0.06,
+        vy: (Math.random() - 0.5) * 0.06
       });
     }
   }
@@ -801,13 +789,13 @@ function initStars() {
     shooters.push({
       x: Math.random() * canvas.width * 0.6 + canvas.width * 0.1,
       y: Math.random() * canvas.height * 0.3,
-      len: Math.random() * 130 + 80,
+      len: Math.random() * 130 + 60,
       speed: Math.random() * 9 + 6,
       angle: Math.PI / 4 + (Math.random() - 0.5) * 0.25,
       alpha: 0.9
     });
   }
-  setInterval(spawnShooter, 2500);
+  setInterval(spawnShooter, 3200);
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -820,23 +808,10 @@ function initStars() {
       if (s.x > canvas.width) s.x = 0;
       if (s.y < 0) s.y = canvas.height;
       if (s.y > canvas.height) s.y = 0;
-      const a = s.o * (0.45 + 0.55 * Math.sin(s.ph));
-
-      // Glow untuk bintang besar
-      if (s.glow) {
-        const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 4);
-        g.addColorStop(0, `rgba(${s.color},${a * 0.6})`);
-        g.addColorStop(1, `rgba(${s.color},0)`);
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r * 4, 0, Math.PI * 2);
-        ctx.fillStyle = g;
-        ctx.fill();
-      }
-
-      // Bintang itu sendiri
+      const a = s.o * (0.35 + 0.65 * Math.sin(s.ph));
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${s.color},${a})`;
+      ctx.fillStyle = `rgba(210,225,255,${a})`;
       ctx.fill();
     });
 
@@ -921,21 +896,24 @@ function initSlideUp() {
 // ====== FLOATING BADGES ROTATION ======
 function initFloatingBadges() {
   const badgeIds = ['floatBadge1','floatBadge2','floatBadge3','floatBadge4'];
+  const mobileBadgeIds = ['mobileBadge1','mobileBadge2','mobileBadge3','mobileBadge4'];
+  const allIds = [...badgeIds, ...mobileBadgeIds];
   const skills = data.skills.map(s => s.name);
   if (!skills.length) return;
 
-  // Init each badge at offset position
-  badgeIds.forEach((id, i) => {
+  // Init all badges
+  allIds.forEach((id, i) => {
     const el = document.getElementById(id);
     if (el) el.textContent = skills[i % skills.length];
   });
 
-  // Rotate ONE badge at a time for smooth effect
-  let nextSkill = badgeIds.length % skills.length;
+  // Rotate ONE badge at a time (desktop + mobile in sync)
+  let nextSkill = allIds.length % skills.length;
   let nextBadge = 0;
 
   setInterval(() => {
-    const id = badgeIds[nextBadge];
+    // Rotate desktop badge
+    const id = badgeIds[nextBadge % badgeIds.length];
     const el = document.getElementById(id);
     if (el) {
       el.classList.add('badge-fade-out');
@@ -944,6 +922,18 @@ function initFloatingBadges() {
         el.classList.remove('badge-fade-out');
         el.classList.add('badge-fade-in');
         setTimeout(() => el.classList.remove('badge-fade-in'), 600);
+      }, 400);
+    }
+    // Rotate mobile badge (same index)
+    const mid = mobileBadgeIds[nextBadge % mobileBadgeIds.length];
+    const mel = document.getElementById(mid);
+    if (mel) {
+      mel.classList.add('badge-fade-out');
+      setTimeout(() => {
+        mel.textContent = skills[nextSkill % skills.length];
+        mel.classList.remove('badge-fade-out');
+        mel.classList.add('badge-fade-in');
+        setTimeout(() => mel.classList.remove('badge-fade-in'), 600);
       }, 400);
     }
     nextSkill = (nextSkill + 1) % skills.length;
