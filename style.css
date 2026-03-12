@@ -252,13 +252,14 @@ body {
 /* ====== SKILLS ====== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: 14px;
 }
 .skill-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--r); padding: 22px 18px;
   transition: var(--t); position: relative; overflow: hidden;
+  text-align: center;
 }
 .skill-card::after {
   content: ''; position: absolute; inset: 0;
@@ -268,8 +269,15 @@ body {
 .skill-card:hover { border-color: rgba(111,174,232,0.2); transform: translateY(-2px); }
 .skill-card:hover::after { opacity: 1; }
 .skill-icon { font-size: 26px; margin-bottom: 10px; display: block; position: relative; z-index: 1; }
-.skill-name { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 8px; position: relative; z-index: 1; }
-.skill-level { display: flex; gap: 3px; margin-bottom: 7px; position: relative; z-index: 1; }
+.skill-icon img {
+  width: 38px; height: 38px; object-fit: contain;
+  display: block; margin: 0 auto;
+  filter: drop-shadow(0 2px 8px rgba(111,174,232,0.15));
+  transition: transform var(--t);
+}
+.skill-card:hover .skill-icon img { transform: scale(1.1); }
+.skill-name { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 8px; position: relative; z-index: 1; }
+.skill-level { display: flex; gap: 3px; margin-bottom: 7px; position: relative; z-index: 1; justify-content: center; }
 .level-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); transition: var(--t); }
 .level-dot.active { background: var(--accent); }
 .skill-cat {
@@ -641,4 +649,567 @@ body {
   .skills-grid { grid-template-columns: 1fr 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   .portfolio-tabs { width: 100%; justify-content: center; }
+}
+/* ============================================
+   SLIDE UP ANIMATION
+   ============================================ */
+.hero-slide-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 28px;
+  
+}
+.hero-slide-prefix {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: #8a90a0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.hero-slide-box {
+  height: 28px;
+  overflow: hidden;
+  flex: 1;
+}
+.hero-slide-track {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hero-slide-item {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: #7eb8f7;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ============================================
+   SKILL BAR CARDS
+   ============================================ */
+.skill-bar-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: border-color 0.25s, background 0.25s;
+}
+.skill-bar-card:hover {
+  border-color: rgba(126,184,247,0.25);
+  background: rgba(126,184,247,0.04);
+}
+.skill-bar-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.skill-bar-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.skill-bar-icon-emoji {
+  font-size: 26px;
+  flex-shrink: 0;
+  width: 32px;
+  text-align: center;
+}
+.skill-bar-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.skill-bar-name {
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #e8eaf0;
+}
+.skill-bar-cat {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #4a5068;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.skill-bar-pct {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: #7eb8f7;
+  flex-shrink: 0;
+}
+.skill-bar-track {
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #3d7abf, #7eb8f7);
+  transition: width 0.9s cubic-bezier(0.16,1,0.3,1);
+}
+.skill-bar-fill.animated {
+  width: var(--pct);
+}
+#skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+/* ============================================
+   PROJECT FILTER BUTTONS
+   ============================================ */
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.filter-btn {
+  padding: 7px 20px;
+  border-radius: 99px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: transparent;
+  color: #8a90a0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-btn:hover {
+  border-color: rgba(126,184,247,0.4);
+  color: #7eb8f7;
+}
+.filter-btn.active {
+  background: rgba(126,184,247,0.12);
+  border-color: rgba(126,184,247,0.5);
+  color: #7eb8f7;
+}
+
+/* ============================================
+   MATA KULIAH TAGS
+   ============================================ */
+.info-card-full {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+}
+.matkul-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.matkul-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: rgba(126,184,247,0.1);
+  border: 1px solid rgba(126,184,247,0.2);
+  color: #7eb8f7;
+  letter-spacing: 0.04em;
+}
+
+/* ============================================
+   CONTACT FORM CARD
+   ============================================ */
+.contact-form-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 28px 26px;
+}
+.cf-group {
+  margin-bottom: 14px;
+}
+.cf-group .form-input,
+.cf-group .form-textarea {
+  width: 100%;
+}
+.cf-submit {
+  width: 100%;
+  margin-top: 4px;
+  justify-content: center;
+}
+.cf-status {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  text-align: center;
+  color: var(--accent);
+  min-height: 20px;
+  margin-top: 10px;
+}
+
+/* ============================================
+   HERO PHOTO — organic border + glow
+   ============================================ */
+.hero-photo-wrap {
+  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60% !important;
+  border: 2px solid rgba(126,184,247,0.25) !important;
+  box-shadow:
+    0 0 0 6px rgba(126,184,247,0.06),
+    0 0 40px rgba(126,184,247,0.12),
+    0 0 80px rgba(126,184,247,0.06) !important;
+  animation: morphBorder 8s ease-in-out infinite !important;
+  overflow: hidden;
+}
+@keyframes morphBorder {
+  0%   { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
+  25%  { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
+  50%  { border-radius: 50% 50% 60% 40% / 40% 60% 45% 55%; }
+  75%  { border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%; }
+  100% { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
+}
+#heroPhoto {
+  border-radius: inherit !important;
+}
+
+/* ============================================
+   FLOATING SKILL BADGES
+   ============================================ */
+.hero-card-inner {
+  position: relative;
+}
+.float-badge {
+  position: absolute;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  padding: 5px 12px;
+  border-radius: 99px;
+  border: 1px solid rgba(126,184,247,0.35);
+  background: rgba(10,14,30,0.85);
+  color: #7eb8f7;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  letter-spacing: 0.05em;
+}
+.float-badge-1 { top: 8%;  left: -18%; animation: floatBadge1 4.0s ease-in-out infinite; }
+.float-badge-2 { top: 28%; right: -20%; animation: floatBadge2 4.5s ease-in-out infinite; }
+.float-badge-3 { top: 55%; left: -22%; animation: floatBadge3 5.0s ease-in-out infinite; }
+.float-badge-4 { top: 75%; right: -18%; animation: floatBadge4 4.2s ease-in-out infinite; }
+.float-badge-5 { top: -5%; right: 10%;  animation: floatBadge5 3.8s ease-in-out infinite; }
+.float-badge-6 { bottom: 8%; left: 5%;  animation: floatBadge6 4.7s ease-in-out infinite; }
+
+@keyframes floatBadge1 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.85;} 50%{transform:translateY(-10px) translateX(3px);opacity:1;} }
+@keyframes floatBadge2 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.75;} 50%{transform:translateY(-8px) translateX(-4px);opacity:1;} }
+@keyframes floatBadge3 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.9;} 50%{transform:translateY(-12px) translateX(2px);opacity:1;} }
+@keyframes floatBadge4 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.8;} 50%{transform:translateY(-9px) translateX(-3px);opacity:1;} }
+@keyframes floatBadge5 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.85;} 50%{transform:translateY(8px) translateX(4px);opacity:1;} }
+@keyframes floatBadge6 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.75;} 50%{transform:translateY(-7px) translateX(-2px);opacity:1;} }
+
+/* ============================================
+   SOCIAL ICONS
+   ============================================ */
+.hero-socials {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.hero-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8a90a0;
+  transition: all 0.25s ease;
+  background: rgba(255,255,255,0.03);
+}
+.hero-social-btn:hover {
+  border-color: rgba(126,184,247,0.5);
+  color: #7eb8f7;
+  background: rgba(126,184,247,0.08);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   CV DOWNLOAD BUTTON
+   ============================================ */
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: 99px;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(184,152,90,0.4);
+  color: #c4a96a;
+  background: rgba(184,152,90,0.06);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.btn-cv:hover {
+  background: rgba(184,152,90,0.14);
+  border-color: rgba(184,152,90,0.7);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   TYPING EFFECT
+   ============================================ */
+.hero-slide-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero-slide-prefix {
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  color: #8a90a0;
+  white-space: nowrap;
+}
+.hero-typing {
+  font-family: 'DM Mono', monospace;
+  font-size: 16px;
+  color: #7eb8f7;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  min-width: 2px;
+}
+.hero-cursor {
+  font-family: 'DM Mono', monospace;
+  font-size: 18px;
+  color: #7eb8f7;
+  animation: blink 0.75s step-end infinite;
+  line-height: 1;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ============================================
+   BIGGER PHOTO
+   ============================================ */
+.hero-card-inner {
+  position: relative;
+}
+.hero-photo-wrap {
+  width: 240px !important;
+  height: 300px !important;
+}
+
+/* ============================================
+   FLOATING BADGES — only 4, with fade transition
+   ============================================ */
+.float-badge {
+  transition: opacity 0.4s ease !important;
+}
+.float-badge-5, .float-badge-6 {
+  display: none !important;
+}
+
+/* ============================================
+   HERO PHOTO AREA — no card box
+   ============================================ */
+.hero-photo-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-card, .hero-card-inner, .hero-card-stats {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* ============================================
+   HERO PHOTO — bigger, organic, no box
+   ============================================ */
+.hero-photo-wrap {
+  width: 280px !important;
+  height: 340px !important;
+  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60% !important;
+  border: 2px solid rgba(126,184,247,0.3) !important;
+  box-shadow:
+    0 0 0 8px rgba(126,184,247,0.05),
+    0 0 50px rgba(126,184,247,0.15),
+    0 0 100px rgba(126,184,247,0.07) !important;
+  animation: morphBorder 8s ease-in-out infinite !important;
+  overflow: hidden;
+  background: rgba(10,14,30,0.5);
+}
+@keyframes morphBorder {
+  0%   { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
+  25%  { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
+  50%  { border-radius: 50% 50% 60% 40% / 40% 60% 45% 55%; }
+  75%  { border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%; }
+  100% { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
+}
+#heroPhoto { border-radius: inherit !important; }
+
+/* ============================================
+   FLOATING BADGES — bigger, smooth, no patchy
+   ============================================ */
+.float-badge {
+  position: absolute;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px !important;
+  font-weight: 500;
+  padding: 8px 18px !important;
+  border-radius: 99px;
+  border: 1px solid rgba(126,184,247,0.4);
+  background: rgba(8,12,28,0.88);
+  color: #a8d4ff;
+  backdrop-filter: blur(12px);
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+  letter-spacing: 0.06em;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  box-shadow: 0 0 14px rgba(126,184,247,0.12), inset 0 0 8px rgba(126,184,247,0.04);
+}
+.float-badge-1 { top: 5%;  left: -24%; animation: floatBadge1 4.0s ease-in-out infinite; }
+.float-badge-2 { top: 30%; right: -26%; animation: floatBadge2 4.5s ease-in-out infinite; }
+.float-badge-3 { top: 58%; left: -26%; animation: floatBadge3 5.0s ease-in-out infinite; }
+.float-badge-4 { top: 78%; right: -22%; animation: floatBadge4 4.2s ease-in-out infinite; }
+
+.badge-fade-out { opacity: 0 !important; transform: translateY(-6px) scale(0.9) !important; }
+.badge-fade-in  { animation: badgePop 0.5s ease forwards; }
+@keyframes badgePop {
+  from { opacity: 0; transform: translateY(6px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes floatBadge1 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+@keyframes floatBadge2 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+@keyframes floatBadge3 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+@keyframes floatBadge4 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-9px);} }
+
+/* ============================================
+   EDUCATION TIMELINE — visual redesign
+   ============================================ */
+.edu-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 8px;
+}
+.edu-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+.edu-line-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6px;
+  flex-shrink: 0;
+}
+.edu-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent, #7eb8f7);
+  box-shadow: 0 0 10px rgba(126,184,247,0.5);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.edu-connector {
+  width: 2px;
+  flex: 1;
+  min-height: 40px;
+  background: linear-gradient(to bottom, rgba(126,184,247,0.4), rgba(126,184,247,0.05));
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.edu-card {
+  flex: 1;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  transition: border-color 0.3s;
+}
+.edu-card:hover { border-color: rgba(126,184,247,0.2); }
+.edu-card-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+.edu-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  padding: 6px;
+  flex-shrink: 0;
+}
+.edu-logo-placeholder {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+.edu-card-info { flex: 1; }
+.edu-year {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent, #7eb8f7);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+.edu-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary, #e8eaf0);
+  margin: 0 0 4px;
+}
+.edu-institution {
+  font-size: 13px;
+  color: var(--text-dim, #8a90a0);
+  margin: 0;
+}
+.edu-desc {
+  font-size: 13px;
+  color: var(--text-dim, #8a90a0);
+  line-height: 1.7;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.edu-actions { margin-top: 10px; display: flex; gap: 8px; }
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .hero-photo-wrap { width: 220px !important; height: 270px !important; }
+  .float-badge { font-size: 11px !important; padding: 6px 13px !important; }
+  .float-badge-1 { left: -10%; }
+  .float-badge-2 { right: -10%; }
+  .float-badge-3 { left: -10%; }
+  .float-badge-4 { right: -10%; }
+  .edu-card-top { flex-direction: column; align-items: flex-start; }
 }

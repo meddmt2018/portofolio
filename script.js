@@ -24,7 +24,7 @@ const defaultData = {
     gpa: "3.70",
     totalCerts: "3",
     status: "Aktif Kuliah",
-    email: "24050974084@mhs.unesa.ac.id",
+    email: "med.dmt2018@gmail.com",
     photo: "img/foto.jpg"
   },
   education: [
@@ -32,17 +32,27 @@ const defaultData = {
     { id: 2, year: "2019 — 2024", title: "SMA", institution: "MA Tahfizhul Qura'an Isy Karima", desc: "Jurusan IPA. Aktif dalam kegiatan akademik di lingkungan pesantren." }
   ],
   skills: [
-    { id: 1, icon: "💻", name: "Web Development", level: 2, category: "Frontend" },
-    { id: 2, icon: "🎨", name: "UI / UX Design", level: 2, category: "Design" },
-    { id: 3, icon: "🐍", name: "Python", level: 1, category: "Programming" },
-    { id: 4, icon: "🗄️", name: "SQL & Database", level: 1, category: "Backend" },
-    { id: 5, icon: "⚙️", name: "Git & Version Control", level: 1, category: "Tools" },
-    { id: 6, icon: "📊", name: "Analisis Data", level: 2, category: "Data" },
-    { id: 7, icon: "🧩", name: "Problem Solving", level: 2, category: "Soft Skill" },
-    { id: 8, icon: "🤝", name: "Kolaborasi Tim", level: 3, category: "Soft Skill" }
+    { id: 1, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", name: "HTML", level: 3, category: "Frontend" },
+    { id: 2, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", name: "CSS", level: 3, category: "Frontend" },
+    { id: 3, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", name: "JavaScript", level: 2, category: "Frontend" },
+    { id: 4, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", name: "Python", level: 1, category: "Programming" },
+    { id: 5, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", name: "Java", level: 2, category: "Programming" },
+    { id: 6, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", name: "MySQL", level: 1, category: "Backend" },
+    { id: 7, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", name: "Git", level: 1, category: "Tools" },
+    { id: 8, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg", name: "GitHub", level: 2, category: "Tools" },
+    { id: 9, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", name: "Figma", level: 2, category: "Design" },
+    { id: 10, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg", name: "Android Studio", level: 2, category: "Tools" },
   ],
   certificates: [
-    { id: 1, name: "HTML Dasar", issuer: "Skilvul", date: "February 2026", highlighted: true, file: "docs/sertifikat_html_dasar.pdf", fileType: "pdf", fileName: "sertifikat_html-dasar.pdf" },
+    { 
+      id: 1, 
+      name: "HTML Dasar", 
+      issuer: "Skilvul", 
+      date: "February 2026", 
+      highlighted: true, 
+      file: "docs/sertifikat_html_dasar.pdf", 
+      fileType: "pdf", 
+      fileName: "sertifikat_html-dasar.pdf" },
   ],
   projects: [
     { 
@@ -50,20 +60,27 @@ const defaultData = {
       emoji: "🌐", 
       title: "Website Portofolio Pribadi", 
       desc: "Website portofolio dengan tema luar angkasa yang elegan, dibangun tanpa framework berat.", 
-      tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Alpine.js"], 
+      tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Alpine.js", "Web"], 
       linkDemo: "https://ahmed-dimitrie.netlify.app", 
       linkCode: "https://github.com/meddmt2018/portofolio" },
     { 
       id: 2, 
       emoji: "💰", 
-      title: "Duitku — Aplikasi Pengelola Keuangan", 
-      desc: "Aplikasi Android untuk manajemen keuangan pribadi, dirancang untuk membantu pengguna mengelola pemasukan dan pengeluaran sehari-hari.", 
-      tags: ["Java", "Android", "Mobile App"], 
+      title: "Duitku — Android Finance App (Remake)", 
+      desc: "Remake & modifikasi dari aplikasi Android open-source untuk manajemen keuangan pribadi. Ditingkatkan dengan penyesuaian UI dan fitur tambahan.", 
+      tags: ["Java", "Android", "Mobile App", "Mobile"], 
       linkCode: "https://github.com/meddmt2018/Duitku"},
-
+    {
+      id: 3, 
+      emoji: "🏫", 
+      title: "SIMKAS — Sistem Manajemen Keuangan Sekolah", 
+      desc: "Aplikasi desktop berbasis VB.NET untuk manajemen keuangan sekolah, dilengkapi fitur AI Support berbasis NLP untuk input transaksi menggunakan bahasa alami.", 
+      tags: ["VB.NET", "SQLite", "Windows Forms", "AI/NLP", "OOP"], 
+      linkDemo: "", 
+      linkCode: "https://github.com/meddmt2018/SIMKAS" },
   ],
   contacts: [
-    { id: 1, icon: "📧", label: "Email", value: "med.dmt2018@gmail.com", href: "mailto:med.dmt2018@gmail.com" },
+    { id: 1, icon: "📧", label: "Email", value: "med.dmt2018@gmail.com", href: "https://mail.google.com/mail/?view=cm&to=med.dmt2018@gmail.com" },
     { id: 2, icon: "📷", label: "Instagram", value: "@med_dmt", href: "https://instagram.com/med_dmt" },
     { id: 3, icon: "🐙", label: "GitHub", value: "github.com/meddmt2018", href: "https://github.com/meddmt2018" }
   ]
@@ -106,7 +123,9 @@ function init() {
   loadData();
   detectMode();
   initStars();
+  initSlideUp();
   renderAll();
+  initFloatingBadges();
   initNav();
   initPhotoUpload();
   initInlineEdit();
@@ -129,7 +148,6 @@ function renderAll() {
   renderProfile();
   renderEducation();
   renderSkills();
-  renderAchievements();
   renderProjects();
   renderCertificates();
   renderContacts();
@@ -157,7 +175,7 @@ function renderProfile() {
   setText('ctaEmail', p.email);
   setText('footerName', p.name);
   const el = document.getElementById('ctaEmailLink');
-  if (el) el.href = `mailto:${p.email}`;
+  if (el) el.href = `https://mail.google.com/mail/?view=cm&to=${p.email}`;
   if (p.photo) {
     const img = document.getElementById('heroPhoto');
     const ph = document.getElementById('heroPhotoPlaceholder');
@@ -171,17 +189,29 @@ function setText(id, v) { const el = document.getElementById(id); if (el) el.tex
 function renderEducation() {
   const c = document.getElementById('educationTimeline');
   if (!c) return;
-  c.innerHTML = data.education.map(e => `
-    <div class="timeline-item">
-      <div class="timeline-year">${e.year}</div>
-      <div class="timeline-title">${e.title}</div>
-      <div class="timeline-sub">${e.institution}</div>
-      ${e.desc ? `<div class="timeline-desc">${e.desc}</div>` : ''}
-      <div class="item-actions">
-        <button class="action-btn" onclick="editEdu(${e.id})">✎ Edit</button>
-        <button class="action-btn delete" onclick="delItem('education',${e.id})">✕ Hapus</button>
+  const logos = { 1: 'img/unesa.png', 2: 'img/matiq.png' };
+  c.innerHTML = `<div class="edu-timeline">` + data.education.map((e, idx) => `
+    <div class="edu-item">
+      <div class="edu-line-col">
+        <div class="edu-dot"></div>
+        ${idx < data.education.length - 1 ? '<div class="edu-connector"></div>' : ''}
       </div>
-    </div>`).join('');
+      <div class="edu-card">
+        <div class="edu-card-top">
+          ${logos[e.id] ? `<img src="${logos[e.id]}" alt="logo" class="edu-logo">` : `<span class="edu-logo-placeholder">🏫</span>`}
+          <div class="edu-card-info">
+            <span class="edu-year">${e.year}</span>
+            <h3 class="edu-title">${e.title}</h3>
+            <p class="edu-institution">${e.institution}</p>
+          </div>
+        </div>
+        ${e.desc ? `<p class="edu-desc">${e.desc}</p>` : ''}
+        <div class="item-actions">
+          <button class="action-btn" onclick="editEdu(${e.id})">✎ Edit</button>
+          <button class="action-btn delete" onclick="delItem('education',${e.id})">✕ Hapus</button>
+        </div>
+      </div>
+    </div>`).join('') + `</div>`;
 }
 
 function addEducation() {
@@ -207,20 +237,42 @@ function eduForm(e) {
 }
 
 // ====== SKILLS ======
+const levelMap = { 1: 20, 2: 40, 3: 60, 4: 80, 5: 100 };
+const levelLabel = { 1: 'Pemula', 2: 'Dasar', 3: 'Menengah', 4: 'Mahir', 5: 'Ahli' };
+
 function renderSkills() {
   const c = document.getElementById('skillsGrid');
   if (!c) return;
-  c.innerHTML = data.skills.map((s, i) => `
-    <div class="skill-card" data-aos="fade-up" data-aos-delay="${i * 50}">
-      <span class="skill-icon">${s.icon}</span>
-      <div class="skill-name">${s.name}</div>
-      <div class="skill-level">${[1,2,3,4,5].map(n => `<div class="level-dot ${n <= s.level ? 'active' : ''}"></div>`).join('')}</div>
-      <div class="skill-cat">${s.category}</div>
+  c.innerHTML = data.skills.map((s, i) => {
+    const isUrl = s.icon && s.icon.startsWith('http');
+    const iconHTML = isUrl
+      ? `<img src="${s.icon}" alt="${s.name}" class="skill-bar-icon">`
+      : `<span class="skill-bar-icon-emoji">${s.icon}</span>`;
+    const pct = levelMap[s.level] || 60;
+    const lbl = levelLabel[s.level] || '';
+    return `
+    <div class="skill-bar-card" data-aos="fade-up" data-aos-delay="${i * 40}">
+      <div class="skill-bar-top">
+        ${iconHTML}
+        <div class="skill-bar-info">
+          <span class="skill-bar-name">${s.name}</span>
+          <span class="skill-bar-cat">${s.category}</span>
+        </div>
+        <span class="skill-bar-pct">${lbl}</span>
+      </div>
+      <div class="skill-bar-track">
+        <div class="skill-bar-fill" style="--pct:${pct}%"></div>
+      </div>
       <div class="item-actions">
         <button class="action-btn" onclick="editSkill(${s.id})">✎ Edit</button>
         <button class="action-btn delete" onclick="delItem('skills',${s.id})">✕ Hapus</button>
       </div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
+  // Animate bars after render
+  setTimeout(() => {
+    document.querySelectorAll('.skill-bar-fill').forEach(el => el.classList.add('animated'));
+  }, 100);
   if (typeof AOS !== 'undefined') AOS.refresh();
 }
 
@@ -300,6 +352,8 @@ function switchTab(tab) {
 }
 
 // ====== PROJECTS ======
+let activeFilter = 'all';
+
 function renderProjects() {
   const c = document.getElementById('projectsGrid');
   if (!c) return;
@@ -310,7 +364,7 @@ function renderProjects() {
     return;
   }
   c.innerHTML = data.projects.map((p, i) => `
-    <div class="project-card" data-aos="fade-up" data-aos-delay="${i * 70}">
+    <div class="project-card" data-aos="fade-up" data-aos-delay="${i * 70}" data-tags="${(p.tags || []).join(',').toLowerCase()}">
       <span class="project-emoji">${p.emoji}</span>
       <div class="project-title">${p.title}</div>
       <div class="project-desc">${p.desc}</div>
@@ -325,6 +379,19 @@ function renderProjects() {
       </div>
     </div>`).join('');
   if (typeof AOS !== 'undefined') AOS.refresh();
+  applyFilter(activeFilter);
+}
+
+function applyFilter(filter) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === filter);
+  });
+  document.querySelectorAll('.project-card').forEach(card => {
+    if (filter === 'all') { card.style.display = ''; return; }
+    const tags = card.dataset.tags || '';
+    card.style.display = tags.includes(filter.toLowerCase()) ? '' : 'none';
+  });
 }
 
 function addProject() {
@@ -697,49 +764,210 @@ function toggleMenu() {
 function initStars() {
   const canvas = document.getElementById('starsCanvas');
   const ctx = canvas.getContext('2d');
-  let stars = [];
+  let stars = [], shooters = [];
 
   function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 
   function makeStars() {
     stars = [];
-    const n = Math.floor((canvas.width * canvas.height) / 7000);
+    const n = Math.floor((canvas.width * canvas.height) / 2800);
     for (let i = 0; i < n; i++) {
+      const size = Math.random();
+      // 70% kecil, 20% sedang, 10% besar+glow
+      const r = size < 0.7 ? Math.random() * 0.8 + 0.2
+               : size < 0.9 ? Math.random() * 1.2 + 0.8
+               : Math.random() * 1.8 + 1.4;
+      // Warna bintang: putih, biru muda, sedikit kuning (seperti asli)
+      const colorRoll = Math.random();
+      const color = colorRoll < 0.6 ? '220,230,255'
+                  : colorRoll < 0.85 ? '180,210,255'
+                  : '255,240,200';
       stars.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        r: Math.random() * 1.1 + 0.08,
-        o: Math.random() * 0.5 + 0.08,
+        r,
+        color,
+        o: Math.random() * 0.5 + 0.2,   // lebih terang: min 0.4
         sp: Math.random() * 0.018 + 0.003,
-        ph: Math.random() * Math.PI * 2
+        ph: Math.random() * Math.PI * 2,
+        vx: (Math.random() - 0.5) * 0.04,
+        vy: (Math.random() - 0.5) * 0.04,
+        glow: r > 1.4  // bintang besar dapat glow
       });
     }
   }
 
+  function spawnShooter() {
+    shooters.push({
+      x: Math.random() * canvas.width * 0.6 + canvas.width * 0.1,
+      y: Math.random() * canvas.height * 0.3,
+      len: Math.random() * 130 + 80,
+      speed: Math.random() * 9 + 6,
+      angle: Math.PI / 4 + (Math.random() - 0.5) * 0.25,
+      alpha: 0.9
+    });
+  }
+  setInterval(spawnShooter, 2500);
+
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Stars
     stars.forEach(s => {
       s.ph += s.sp;
-      const a = s.o * (0.5 + 0.5 * Math.sin(s.ph));
+      s.x += s.vx; s.y += s.vy;
+      if (s.x < 0) s.x = canvas.width;
+      if (s.x > canvas.width) s.x = 0;
+      if (s.y < 0) s.y = canvas.height;
+      if (s.y > canvas.height) s.y = 0;
+      const a = s.o * (0.45 + 0.55 * Math.sin(s.ph));
+
+      // Glow untuk bintang besar
+      if (s.glow) {
+        const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 4);
+        g.addColorStop(0, `rgba(${s.color},${a * 0.6})`);
+        g.addColorStop(1, `rgba(${s.color},0)`);
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r * 4, 0, Math.PI * 2);
+        ctx.fillStyle = g;
+        ctx.fill();
+      }
+
+      // Bintang itu sendiri
       ctx.beginPath();
       ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(195,215,255,${a})`;
+      ctx.fillStyle = `rgba(${s.color},${a})`;
       ctx.fill();
     });
-    // Subtle nebula
-    const g1 = ctx.createRadialGradient(canvas.width * 0.75, canvas.height * 0.25, 0, canvas.width * 0.75, canvas.height * 0.25, canvas.width * 0.38);
-    g1.addColorStop(0, 'rgba(111,174,232,0.035)'); g1.addColorStop(1, 'transparent');
+
+    // Shooting stars
+    for (let i = shooters.length - 1; i >= 0; i--) {
+      const ss = shooters[i];
+      ss.x += Math.cos(ss.angle) * ss.speed;
+      ss.y += Math.sin(ss.angle) * ss.speed;
+      ss.alpha -= 0.016;
+      if (ss.alpha <= 0) { shooters.splice(i, 1); continue; }
+      const tx = ss.x - Math.cos(ss.angle) * ss.len;
+      const ty = ss.y - Math.sin(ss.angle) * ss.len;
+      const grad = ctx.createLinearGradient(tx, ty, ss.x, ss.y);
+      grad.addColorStop(0, 'rgba(255,255,255,0)');
+      grad.addColorStop(1, `rgba(180,215,255,${ss.alpha})`);
+      ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(ss.x, ss.y);
+      ctx.strokeStyle = grad; ctx.lineWidth = 1.5; ctx.stroke();
+    }
+
+    // Nebula blue — top right
+    const g1 = ctx.createRadialGradient(canvas.width * 0.78, canvas.height * 0.18, 0, canvas.width * 0.78, canvas.height * 0.18, canvas.width * 0.42);
+    g1.addColorStop(0, 'rgba(80,140,255,0.08)');
+    g1.addColorStop(0.5, 'rgba(111,174,232,0.04)');
+    g1.addColorStop(1, 'transparent');
     ctx.fillStyle = g1; ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    const g2 = ctx.createRadialGradient(canvas.width * 0.15, canvas.height * 0.8, 0, canvas.width * 0.15, canvas.height * 0.8, canvas.width * 0.28);
-    g2.addColorStop(0, 'rgba(184,152,90,0.02)'); g2.addColorStop(1, 'transparent');
+    // Nebula purple — bottom left
+    const g2 = ctx.createRadialGradient(canvas.width * 0.08, canvas.height * 0.8, 0, canvas.width * 0.08, canvas.height * 0.8, canvas.width * 0.32);
+    g2.addColorStop(0, 'rgba(130,70,210,0.07)');
+    g2.addColorStop(1, 'transparent');
     ctx.fillStyle = g2; ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Nebula warm gold — center
+    const g3 = ctx.createRadialGradient(canvas.width * 0.45, canvas.height * 0.55, 0, canvas.width * 0.45, canvas.height * 0.55, canvas.width * 0.28);
+    g3.addColorStop(0, 'rgba(184,152,90,0.03)');
+    g3.addColorStop(1, 'transparent');
+    ctx.fillStyle = g3; ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     requestAnimationFrame(draw);
   }
 
   resize(); makeStars(); draw();
   window.addEventListener('resize', () => { resize(); makeStars(); });
+}
+
+// ====== TYPING ANIMATION ======
+function initSlideUp() {
+  const el = document.getElementById('heroTyping');
+  if (!el) return;
+  const words = [
+    ' IT education students 🎓',
+    ' Web Developer 💻',
+    ' Problem Solver 🔍',
+  ];
+  let wi = 0, ci = 0, deleting = false;
+  function tick() {
+    const word = words[wi];
+    if (!deleting) {
+      el.textContent = word.substring(0, ci + 1);
+      ci++;
+      if (ci === word.length) {
+        deleting = true;
+        setTimeout(tick, 1600);
+        return;
+      }
+      setTimeout(tick, 80);
+    } else {
+      el.textContent = word.substring(0, ci - 1);
+      ci--;
+      if (ci === 0) {
+        deleting = false;
+        wi = (wi + 1) % words.length;
+        setTimeout(tick, 300);
+        return;
+      }
+      setTimeout(tick, 45);
+    }
+  }
+  tick();
+}
+
+// ====== FLOATING BADGES ROTATION ======
+function initFloatingBadges() {
+  const badgeIds = ['floatBadge1','floatBadge2','floatBadge3','floatBadge4'];
+  const skills = data.skills.map(s => s.name);
+  if (!skills.length) return;
+
+  // Init each badge at offset position
+  badgeIds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = skills[i % skills.length];
+  });
+
+  // Rotate ONE badge at a time for smooth effect
+  let nextSkill = badgeIds.length % skills.length;
+  let nextBadge = 0;
+
+  setInterval(() => {
+    const id = badgeIds[nextBadge];
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.add('badge-fade-out');
+      setTimeout(() => {
+        el.textContent = skills[nextSkill % skills.length];
+        el.classList.remove('badge-fade-out');
+        el.classList.add('badge-fade-in');
+        setTimeout(() => el.classList.remove('badge-fade-in'), 600);
+      }, 400);
+    }
+    nextSkill = (nextSkill + 1) % skills.length;
+    nextBadge = (nextBadge + 1) % badgeIds.length;
+  }, 3000);
+}
+
+// ====== CONTACT FORM ======
+function sendContactForm() {
+  const name    = (document.getElementById('cfName')?.value || '').trim();
+  const email   = (document.getElementById('cfEmail')?.value || '').trim();
+  const subject = (document.getElementById('cfSubject')?.value || '').trim();
+  const message = (document.getElementById('cfMessage')?.value || '').trim();
+  const status  = document.getElementById('cfStatus');
+
+  if (!name || !email || !message) {
+    if (status) { status.style.color = '#c05050'; status.textContent = '⚠ Nama, email, dan pesan wajib diisi!'; }
+    return;
+  }
+  const body = `Nama: ${name}\nEmail: ${email}\n\n${message}`;
+  const url = `https://mail.google.com/mail/?view=cm&to=med.dmt2018@gmail.com&su=${encodeURIComponent(subject || 'Pesan dari Portofolio')}&body=${encodeURIComponent(body)}`;
+  window.open(url, '_blank');
+  if (status) { status.style.color = 'var(--accent)'; status.textContent = '✦ Gmail dibuka! Selesaikan pengiriman di sana.'; }
+  ['cfName','cfEmail','cfSubject','cfMessage'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
 }
 
 // ====== START ======
