@@ -34,7 +34,7 @@ const defaultData = {
   skills: [
     { id: 1, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", name: "HTML", level: 3, category: "Frontend" },
     { id: 2, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", name: "CSS", level: 3, category: "Frontend" },
-    { id: 3, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", name: "JavaScript", level: 2, category: "Frontend" },
+    { id: 3, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", name: "JavaScript", level: 1, category: "Frontend" },
     { id: 4, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", name: "Python", level: 1, category: "Programming" },
     { id: 5, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", name: "Java", level: 2, category: "Programming" },
     { id: 6, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", name: "MySQL", level: 1, category: "Backend" },
@@ -53,7 +53,19 @@ const defaultData = {
       file: "docs/sertifikat_html_dasar.pdf", 
       fileType: "pdf", 
       fileName: "sertifikat_html-dasar.pdf" },
+
+    {
+      id: 2,
+      name: "CSS Dasar",
+      issuer: "Skilvul",
+      date: "March 2026",
+      highlighted: true,
+      file: "docs/sertifikat_css_dasar.pdf",
+      fileType: "pdf",
+      fileName: "sertifikat_css-dasar.pdf"
+    },
   ],
+    
   projects: [
     { 
       id: 1, 
@@ -871,7 +883,7 @@ function initSlideUp() {
   if (!el) return;
   const words = [
     ' IT education students 🎓',
-    ' Web Developer 💻',
+    ' Junior Web Developer 💻',
     ' Problem Solver 🔍',
   ];
   let wi = 0, ci = 0, deleting = false;

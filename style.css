@@ -853,27 +853,100 @@ body {
 }
 
 /* ============================================
-   HERO PHOTO — organic border + glow
+   HERO PHOTO — BLACKHOLE EFFECT (DRAMATIC)
    ============================================ */
+
+/* Wrapper area dengan pseudo-elements untuk ring */
+.hero-photo-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Accretion disk — elips miring seperti blackhole asli */
+.bh-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 420px; height: 120px;
+  transform: translate(-50%, -50%) rotateX(75deg);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0%,
+    rgba(255,140,40,0.0)  5%,
+    rgba(255,160,60,0.7)  18%,
+    rgba(255,200,80,0.95) 28%,
+    rgba(255,240,180,1.0) 35%,
+    rgba(126,184,247,0.9) 45%,
+    rgba(80,140,255,0.7)  55%,
+    rgba(160,100,255,0.5) 65%,
+    rgba(255,120,40,0.3)  78%,
+    transparent 90%
+  );
+  animation: bhDiskSpin 5s linear infinite;
+  -webkit-mask: radial-gradient(ellipse 50% 50% at 50% 50%, transparent 44%, black 47%, black 53%, transparent 56%);
+  mask: radial-gradient(ellipse 50% 50% at 50% 50%, transparent 44%, black 47%, black 53%, transparent 56%);
+  pointer-events: none;
+  z-index: 2;
+  filter: blur(1px);
+}
+
+/* Outer glow halo */
+.bh-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 360px; height: 360px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    transparent 35%,
+    rgba(255,140,40,0.04) 42%,
+    rgba(126,184,247,0.10) 50%,
+    rgba(160,80,255,0.07) 60%,
+    transparent 72%
+  );
+  animation: bhGlowPulse 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes bhDiskSpin {
+  from { transform: translate(-50%, -50%) rotateX(75deg) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotateX(75deg) rotate(360deg); }
+}
+@keyframes bhGlowPulse {
+  0%,100% { opacity: 0.7; transform: translate(-50%,-50%) scale(1); }
+  50%     { opacity: 1.0; transform: translate(-50%,-50%) scale(1.05); }
+}
+
+/* Foto bulat, di atas ring */
 .hero-photo-wrap {
-  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60% !important;
-  border: 2px solid rgba(126,184,247,0.25) !important;
-  box-shadow:
-    0 0 0 6px rgba(126,184,247,0.06),
-    0 0 40px rgba(126,184,247,0.12),
-    0 0 80px rgba(126,184,247,0.06) !important;
-  animation: morphBorder 8s ease-in-out infinite !important;
+  width: 260px !important;
+  height: 260px !important;
+  border-radius: 50% !important;
+  border: none !important;
+  box-shadow: none !important;
+  animation: none !important;
   overflow: hidden;
+  background: #000;
+  position: relative;
+  z-index: 3;
 }
-@keyframes morphBorder {
-  0%   { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
-  25%  { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
-  50%  { border-radius: 50% 50% 60% 40% / 40% 60% 45% 55%; }
-  75%  { border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%; }
-  100% { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
-}
-#heroPhoto {
-  border-radius: inherit !important;
+#heroPhoto { border-radius: 50% !important; }
+
+/* Gravitational lensing — tepi foto gelap dramatic */
+.hero-photo-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 20px 8px rgba(0,0,0,0.9),
+    inset 0 0 50px rgba(0,0,10,0.5),
+    0 0 20px 4px rgba(126,184,247,0.15);
+  pointer-events: none;
+  z-index: 4;
 }
 
 /* ============================================
@@ -998,66 +1071,14 @@ body {
 }
 
 /* ============================================
-   BIGGER PHOTO
-   ============================================ */
-.hero-card-inner {
-  position: relative;
-}
-.hero-photo-wrap {
-  width: 240px !important;
-  height: 300px !important;
-}
-
-/* ============================================
-   FLOATING BADGES — only 4, with fade transition
-   ============================================ */
-.float-badge {
-  transition: opacity 0.4s ease !important;
-}
-.float-badge-5, .float-badge-6 {
-  display: none !important;
-}
-
-/* ============================================
    HERO PHOTO AREA — no card box
    ============================================ */
-.hero-photo-area {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .hero-card, .hero-card-inner, .hero-card-stats {
   background: none !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
 }
-
-/* ============================================
-   HERO PHOTO — bigger, organic, no box
-   ============================================ */
-.hero-photo-wrap {
-  width: 280px !important;
-  height: 340px !important;
-  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60% !important;
-  border: 2px solid rgba(126,184,247,0.3) !important;
-  box-shadow:
-    0 0 0 8px rgba(126,184,247,0.05),
-    0 0 50px rgba(126,184,247,0.15),
-    0 0 100px rgba(126,184,247,0.07) !important;
-  animation: morphBorder 8s ease-in-out infinite !important;
-  overflow: hidden;
-  background: rgba(10,14,30,0.5);
-}
-@keyframes morphBorder {
-  0%   { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
-  25%  { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
-  50%  { border-radius: 50% 50% 60% 40% / 40% 60% 45% 55%; }
-  75%  { border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%; }
-  100% { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
-}
-#heroPhoto { border-radius: inherit !important; }
 
 /* ============================================
    FLOATING BADGES — bigger, smooth, no patchy
@@ -1218,27 +1239,65 @@ body {
    HERO PHOTO MOBILE
    ============================================ */
 .hero-photo-wrap-mobile {
-  width: 160px;
-  height: 160px;
-  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
-  border: 2px solid rgba(126,184,247,0.3);
-  box-shadow: 0 0 30px rgba(126,184,247,0.15);
-  animation: morphBorder 8s ease-in-out infinite;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: none;
+  animation: none;
   overflow: hidden;
-  background: rgba(10,14,30,0.5);
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 3;
 }
-
-/* ============================================
-   MOBILE BADGES
-   ============================================ */
+.hero-photo-wrap-mobile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 0 20px 6px rgba(0,0,0,0.9),
+    inset 0 0 40px rgba(0,0,10,0.5),
+    0 0 15px 3px rgba(126,184,247,0.12);
+  pointer-events: none;
+  z-index: 4;
+}
+/* Blackhole ring untuk mobile */
 .mobile-photo-section {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+}
+.mobile-bh-ring {
+  position: absolute;
+  top: 90px; left: 50%;
+  width: 270px; height: 78px;
+  transform: translate(-50%, -50%) rotateX(75deg);
+  border-radius: 50%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0%,
+    rgba(255,140,40,0.0)  5%,
+    rgba(255,160,60,0.7)  18%,
+    rgba(255,200,80,0.9)  28%,
+    rgba(255,240,180,1.0) 35%,
+    rgba(126,184,247,0.9) 45%,
+    rgba(80,140,255,0.7)  55%,
+    rgba(160,100,255,0.5) 65%,
+    rgba(255,120,40,0.3)  78%,
+    transparent 90%
+  );
+  animation: bhDiskSpin 5s linear infinite;
+  -webkit-mask: radial-gradient(ellipse 50% 50% at 50% 50%, transparent 44%, black 47%, black 53%, transparent 56%);
+  mask: radial-gradient(ellipse 50% 50% at 50% 50%, transparent 44%, black 47%, black 53%, transparent 56%);
+  pointer-events: none;
+  z-index: 2;
+  filter: blur(1px);
 }
 .mobile-badges {
   display: flex;
