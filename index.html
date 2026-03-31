@@ -17,6 +17,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Sora:wght@200;300;400;500&display=swap" rel="stylesheet">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+  <!-- PDF.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  </script>
 
   <script>
     tailwind.config = {
@@ -161,8 +168,8 @@
 <!-- ====== ABOUT ====== -->
 <section id="about" class="section section-alt">
   <div class="container">
-    <p class="section-label" data-aos="fade-up">01 — Tentang Saya</p>
-    <h2 class="section-title mb-12" data-aos="fade-up" data-aos-delay="80">Sekilas <em>Tentang Saya</em></h2>
+    <p class="section-label" data-aos="fade-up">01 — About Me</p>
+    <h2 class="section-title mb-12" data-aos="fade-up" data-aos-delay="80">A Glimpse of <em>Who I Am</em></h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
       <div class="md:col-span-2 space-y-4" data-aos="fade-right" data-aos-delay="100">
@@ -172,15 +179,15 @@
       </div>
       <div class="flex flex-col gap-4" data-aos="fade-left" data-aos-delay="150">
         <div class="info-card">
-          <span class="info-card-label">Program Studi</span>
+          <span class="info-card-label">Major</span>
           <span class="info-card-val" id="infoProdi" data-field="prodi">Teknik Informatika</span>
         </div>
         <div class="info-card">
-          <span class="info-card-label">Universitas</span>
+          <span class="info-card-label">University</span>
           <span class="info-card-val" id="infoUniv" data-field="univ">Universitas Contoh</span>
         </div>
         <div class="info-card">
-          <span class="info-card-label">Angkatan</span>
+          <span class="info-card-label">Batch</span>
           <span class="info-card-val" id="infoAngkatan" data-field="angkatan">2022</span>
         </div>
         <div class="info-card">
@@ -195,12 +202,12 @@
           </span>
         </div>
         <div class="info-card info-card-full">
-          <span class="info-card-label">Mata Kuliah Relevan</span>
+          <span class="info-card-label">Relevant Courses</span>
           <div class="matkul-wrap">
             <span class="matkul-tag">Pemrograman Web</span>
             <span class="matkul-tag">Pemrograman Visual</span>
-            <span class="matkul-tag">Basis Data</span>
-            <span class="matkul-tag">Algoritma &amp; Pemrograman</span>
+            <span class="matkul-tag">Pemrograma Mobile</span>
+            <span class="matkul-tag">Grafika Komputer</span>
           </div>
         </div>
       </div>
@@ -211,8 +218,8 @@
 <!-- ====== EDUCATION ====== -->
 <section id="education" class="section">
   <div class="container">
-    <p class="section-label" data-aos="fade-up">02 — Pendidikan</p>
-    <h2 class="section-title mb-12" data-aos="fade-up" data-aos-delay="80">Riwayat <em>Pendidikan</em></h2>
+    <p class="section-label" data-aos="fade-up">02 — Education</p>
+    <h2 class="section-title mb-12" data-aos="fade-up" data-aos-delay="80">My <em>Education</em></h2>
     <div id="educationTimeline" class="timeline" data-aos="fade-up" data-aos-delay="120"></div>
     <button class="add-btn edit-only" onclick="addEducation()">+ Tambah Pendidikan</button>
   </div>
@@ -221,9 +228,9 @@
 <!-- ====== SKILLS ====== -->
 <section id="skills" class="section section-alt">
   <div class="container">
-    <p class="section-label" data-aos="fade-up">03 — Keahlian</p>
-    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Skill</h2>
-    <p class="text-[#8a90a0] text-sm font-light mb-12" data-aos="fade-up" data-aos-delay="120">Kemampuan teknis dan non-teknis yang terus diasah</p>
+    <p class="section-label" data-aos="fade-up">03 — Skills</p>
+    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">My Skills</h2>
+    <p class="text-[#8a90a0] text-sm font-light mb-12" data-aos="fade-up" data-aos-delay="120">Technical and non-technical abilities I keep sharpening</p>
     <div id="skillsGrid" class="skills-grid"></div>
     <button class="add-btn edit-only" onclick="addSkill()">+ Tambah Skill</button>
   </div>
@@ -232,17 +239,17 @@
 <!-- ====== PORTFOLIO (Proyek + Sertifikat) ====== -->
 <section id="portfolio" class="section section-alt">
   <div class="container">
-    <p class="section-label" data-aos="fade-up">05 — Portofolio</p>
-    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Proyek & <em>Sertifikat</em></h2>
-    <p class="text-[#8a90a0] text-sm font-light mb-10" data-aos="fade-up" data-aos-delay="120">Karya dan bukti kompetensi yang telah dicapai</p>
+    <p class="section-label" data-aos="fade-up">04 — Portfolio</p>
+    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Projects & <em>Certificates</em></h2>
+    <p class="text-[#8a90a0] text-sm font-light mb-10" data-aos="fade-up" data-aos-delay="120">Things I've built and proof of what I've learned</p>
 
     <!-- Tab Switcher -->
     <div class="portfolio-tabs" data-aos="fade-up" data-aos-delay="150">
       <button class="tab-btn active" id="tabProjects" onclick="switchTab('projects')">
-        <span class="tab-icon">⚡</span> Proyek
+        <span class="tab-icon">⚡</span> Projects
       </button>
       <button class="tab-btn" id="tabCerts" onclick="switchTab('certs')">
-        <span class="tab-icon">🏅</span> Sertifikat
+        <span class="tab-icon">🏅</span> Certificates
       </button>
     </div>
 
@@ -252,7 +259,7 @@
         <button class="filter-btn active" data-filter="all" onclick="applyFilter('all')">Semua</button>
         <button class="filter-btn" data-filter="web" onclick="applyFilter('web')">Web</button>
         <button class="filter-btn" data-filter="android" onclick="applyFilter('android')">Mobile</button>
-        <button class="filter-btn" data-filter="vb.net" onclick="applyFilter('vb.net')">Desktop</button>
+        <button class="filter-btn" data-filter="desktop" onclick="applyFilter('desktop')">Desktop</button>
       </div>
       <div id="projectsGrid" class="projects-grid"></div>
       <button class="add-btn edit-only" onclick="addProject()">+ Tambah Proyek</button>
@@ -260,6 +267,14 @@
 
     <!-- ===== CERTIFICATES PANEL ===== -->
     <div id="panelCerts" class="tab-panel hidden">
+      <!-- Filter kategori -->
+      <div class="project-filters" data-aos="fade-up">
+        <button class="filter-btn cert-filter-btn active" data-filter="all" onclick="applyCertFilter('all')">Semua</button>
+        <button class="filter-btn cert-filter-btn" data-filter="teknologi" onclick="applyCertFilter('teknologi')">Teknologi</button>
+        <button class="filter-btn cert-filter-btn" data-filter="bisnis" onclick="applyCertFilter('bisnis')">Bisnis</button>
+        <button class="filter-btn cert-filter-btn" data-filter="pengembangan-diri" onclick="applyCertFilter('pengembangan-diri')">Pengembangan Diri</button>
+      </div>
+
       <!-- Highlighted 3 -->
       <div id="certsHighlight" class="certs-grid"></div>
 
@@ -285,9 +300,9 @@
 <!-- ====== CONTACT ====== -->
 <section id="contact" class="section">
   <div class="container">
-    <p class="section-label" data-aos="fade-up">05 — Kontak</p>
-    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Mari <em>Terhubung</em></h2>
-    <p class="text-[#8a90a0] text-sm font-light mb-12" data-aos="fade-up" data-aos-delay="120">Terbuka untuk diskusi, kolaborasi, atau sekadar menyapa!</p>
+    <p class="section-label" data-aos="fade-up">05 — Contact</p>
+    <h2 class="section-title mb-3" data-aos="fade-up" data-aos-delay="80">Let's <em>Connect</em></h2>
+    <p class="text-[#8a90a0] text-sm font-light mb-12" data-aos="fade-up" data-aos-delay="120">Open for discussions, collaborations, or just a friendly hello!</p>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
 
       <!-- Kiri: info kontak -->
@@ -301,7 +316,7 @@
           </div>
         </div>
         <div class="cta-card mt-6">
-          <p class="font-mono text-[10px] text-[#4a5068] uppercase tracking-widest mb-3">Tertarik bekerja sama?</p>
+          <p class="font-mono text-[10px] text-[#4a5068] uppercase tracking-widest mb-3">Interested in working together?</p>
           <h3 class="font-display text-2xl font-light text-[#7eb8f7] mb-6 break-all" id="ctaEmail" data-field="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e38e8687cd878e97d1d3d2dba3848e828a8fcd808c8e">[email&#160;protected]</a></h3>
           <a href="https://mail.google.com/mail/?view=cm&to=med.dmt2018@gmail.com" id="ctaEmailLink" class="btn-primary" target="_blank">Kirim Email</a>
         </div>
@@ -310,20 +325,20 @@
       <!-- Kanan: form kontak -->
       <div data-aos="fade-left" data-aos-delay="100">
         <div class="contact-form-card">
-          <h3 class="font-display text-xl font-light text-[#e8eaf0] mb-6">Kirim Pesan 💬</h3>
+          <h3 class="font-display text-xl font-light text-[#e8eaf0] mb-6">Send a Message 💬</h3>
           <div class="cf-group">
-            <input class="form-input" id="cfName" type="text" placeholder="Nama Anda">
+            <input class="form-input" id="cfName" type="text" placeholder="Your Name">
           </div>
           <div class="cf-group">
-            <input class="form-input" id="cfEmail" type="email" placeholder="Email Anda">
+            <input class="form-input" id="cfEmail" type="email" placeholder="Your Email">
           </div>
           <div class="cf-group">
-            <input class="form-input" id="cfSubject" type="text" placeholder="Subjek">
+            <input class="form-input" id="cfSubject" type="text" placeholder="Subject">
           </div>
           <div class="cf-group">
-            <textarea class="form-textarea" id="cfMessage" rows="4" placeholder="Tulis pesan Anda..."></textarea>
+            <textarea class="form-textarea" id="cfMessage" rows="4" placeholder="Write your message here..."></textarea>
           </div>
-          <button class="btn-primary cf-submit" onclick="sendContactForm()">Kirim Pesan ✉</button>
+          <button class="btn-primary cf-submit" onclick="sendContactForm()">Send Message ✉</button>
           <p id="cfStatus" class="cf-status"></p>
         </div>
       </div>
@@ -340,7 +355,7 @@
       <span class="text-[#7eb8f7] text-xs">✦</span>
       <span class="font-display text-[#8a90a0] text-lg" id="footerName">Nama Anda</span>
     </div>
-    <p class="font-mono text-[11px] text-[#4a5068] tracking-wide">Dibuat dengan semangat & kopi ☕</p>
+    <p class="font-mono text-[11px] text-[#4a5068] tracking-wide">Built with passion & coffee ☕</p>
   </div>
 </footer>
 
@@ -375,7 +390,6 @@
   </div>
 </div>
 
-<!-- ====== EDIT TOOLBAR ====== -->
 <div id="editToolbar" class="edit-toolbar edit-only">
   <span class="font-mono text-[11px] text-[#7eb8f7] tracking-widest">✦ Edit Mode</span>
   <button onclick="saveAllData()" class="toolbar-btn save-btn">💾 Simpan</button>

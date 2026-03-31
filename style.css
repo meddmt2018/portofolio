@@ -608,7 +608,7 @@ body {
 }
 .project-card {
   background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--rl); padding: 28px;
+  border-radius: var(--rl); padding: 0;
   transition: var(--t); position: relative; overflow: hidden;
 }
 .project-card::after {
@@ -618,7 +618,28 @@ body {
 }
 .project-card:hover { border-color: rgba(111,174,232,0.18); transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.22); }
 .project-card:hover::after { opacity: 0.7; }
-.project-emoji { font-size: 30px; margin-bottom: 16px; display: block; }
+.project-cover {
+  width: 100%; height: 180px; overflow: hidden;
+  border-radius: var(--rl) var(--rl) 0 0;
+  position: relative;
+}
+.project-cover img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.project-card:hover .project-cover img { transform: scale(1.04); }
+.project-cover-badge {
+  position: absolute; top: 12px; left: 12px;
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(10, 10, 20, 0.75); backdrop-filter: blur(6px);
+  color: #e8eaf0; font-size: 11px; font-family: 'DM Mono', monospace;
+  padding: 5px 10px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.12);
+  text-decoration: none; transition: var(--t);
+}
+.project-cover-badge:hover { background: rgba(30,30,50,0.9); color: #fff; border-color: rgba(111,174,232,0.4); }
+.project-card-body { padding: 20px 28px 28px 28px; }
+.project-emoji { font-size: 30px; margin-bottom: 16px; display: block; padding: 28px 28px 0 28px; }
 .project-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text); margin-bottom: 8px; }
 .project-desc { font-size: 13px; color: var(--text-sec); font-weight: 300; line-height: 1.75; margin-bottom: 16px; }
 .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
