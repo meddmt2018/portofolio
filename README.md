@@ -2,7 +2,7 @@
 
 Website portofolio pribadi bertema luar angkasa, dibangun tanpa framework berat.
 
-🔗 **Live:** [ahmed-dimitrie.netlify.app](https://ahmed-dimitrie.netlify.app)
+🔗 **Live:** [ahmeddimitrie.netlify.app](https://ahmeddimitrie.netlify.app)
 
 ---
 
