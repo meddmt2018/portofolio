@@ -30,26 +30,15 @@ Website portofolio pribadi bertema luar angkasa, dibangun tanpa framework berat.
 
 ## 📁 Struktur
 
-portofolio/
-├── docs/
-│   ├── sertifikat_html_dasar.pdf
-│   ├── sertifikat_css_dasar.pdf
-│   ├── sertifikat_excel.pdf
-│   └── ...
-├── img/
-│   ├── covers/
-│   │   ├── portofolio.png
-│   │   ├── duitku.png
-│   │   ├── fmipa.png
-│   │   └── simkas.png
-│   ├── foto.jpg
-│   ├── matiq.png
-│   └── unesa.png
-├── favicon.svg
-├── index.html
-├── script.js
-└── style.css
+    portofolio/
+    ├── docs/
+    ├── img/
+    │   ├── covers/
+    ├── favicon.svg
+    ├── index.html
+    ├── script.js
+    └── style.css
 
 ## 📄 Lisensi
 
-© 2026 Farrell Ahmed Dimitrie Dhiaul Aulia
+© 2025 Farrell Ahmed Dimitrie Dhiaul Aulia
