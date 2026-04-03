@@ -41,4 +41,4 @@ Website portofolio pribadi bertema luar angkasa, dibangun tanpa framework berat.
 
 ## 📄 Lisensi
 
-© 2025 Farrell Ahmed Dimitrie Dhiaul Aulia
+© 2026 Farrell Ahmed Dimitrie Dhiaul Aulia
