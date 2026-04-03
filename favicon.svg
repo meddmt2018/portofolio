@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <radialGradient id="bg" cx="40%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1c2240"/>
+      <stop offset="100%" stop-color="#0a0d1a"/>
+    </radialGradient>
+    <linearGradient id="swooshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c8e4ff"/>
+      <stop offset="50%" stop-color="#7eb8f7"/>
+      <stop offset="100%" stop-color="#3a7fd4"/>
+    </linearGradient>
+    <linearGradient id="tailGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7eb8f7" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#7eb8f7" stop-opacity="0.5"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100" height="100" rx="18" fill="url(#bg)"/>
+
+  <!-- Stars -->
+  <circle cx="12" cy="14" r="0.7" fill="#fff" opacity="0.5"/>
+  <circle cx="88" cy="12" r="0.5" fill="#7eb8f7" opacity="0.6"/>
+  <circle cx="92" cy="60" r="0.7" fill="#fff" opacity="0.3"/>
+  <circle cx="8" cy="72" r="0.6" fill="#7eb8f7" opacity="0.4"/>
+  <circle cx="75" cy="90" r="0.5" fill="#fff" opacity="0.4"/>
+  <circle cx="22" cy="90" r="0.6" fill="#7eb8f7" opacity="0.3"/>
+  <circle cx="60" cy="8" r="0.4" fill="#fff" opacity="0.35"/>
+
+  <!-- Swoosh tail (behind letters) -->
+  <path d="M18 72 Q50 85 88 58" stroke="url(#tailGrad)" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Letter F — fluid/swoosh style -->
+  <g filter="url(#glow)">
+    <!-- F vertical stroke — slightly curved -->
+    <path d="M26 22 Q25 50 26 78" stroke="url(#swooshGrad)" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <!-- F top bar -->
+    <path d="M26 22 Q46 18 58 20" stroke="url(#swooshGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- F middle bar with swoosh tip -->
+    <path d="M26 47 Q40 44 52 46 Q56 47 54 51" stroke="url(#swooshGrad)" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Letter A — fluid/swoosh style -->
+  <g filter="url(#glow)">
+    <!-- A left stroke -->
+    <path d="M62 78 Q66 55 72 28" stroke="url(#swooshGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- A right stroke with swoosh -->
+    <path d="M72 28 Q78 55 80 78" stroke="url(#swooshGrad)" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- A crossbar -->
+    <path d="M64 57 Q71 54 79 57" stroke="url(#swooshGrad)" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    <!-- A swoosh tip -->
+    <path d="M72 28 Q76 20 82 18" stroke="url(#swooshGrad)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+  </g>
+
+  <!-- Glowing dot accent -->
+  <circle cx="82" cy="18" r="2.8" fill="#c8e4ff" opacity="0.9" filter="url(#glow)"/>
+</svg>

@@ -1,8 +1,3 @@
-/* ==============================================
-   PORTFOLIO — Refined Space Theme
-   Frameworks: Tailwind CSS, AOS, Alpine.js
-   ============================================== */
-
 :root {
   --bg: #06090f;
   --bg-alt: #0a0e1a;
@@ -23,7 +18,6 @@
   --rl: 18px;
   --t: 0.28s cubic-bezier(0.4,0,0.2,1);
 }
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -34,10 +28,7 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
-
 #starsCanvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-
-/* ====== NAV ====== */
 .nav {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 100;
@@ -60,8 +51,6 @@ body {
   transition: color var(--t);
 }
 .nav-link:hover { color: var(--text); }
-
-/* Mobile nav */
 .hamburger {
   display: flex; flex-direction: column; gap: 5px;
   background: transparent; border: none; cursor: pointer; padding: 4px;
@@ -89,8 +78,6 @@ body {
   transition: color var(--t);
 }
 .mobile-link:hover { color: var(--accent); }
-
-/* ====== EDIT BANNER ====== */
 .edit-banner {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
   background: linear-gradient(90deg, rgba(111,174,232,0.09), rgba(184,152,90,0.07));
@@ -106,17 +93,13 @@ body {
   border-radius: 20px; font-size: 11px; transition: var(--t);
 }
 .exit-edit-btn:hover { color: var(--text); border-color: var(--border-h); }
-
-/* ====== HERO ====== */
 .hero-content { animation: fadeUp 0.9s ease both; }
-
 .hero-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2.8rem, 5.5vw, 5rem);
   font-weight: 300; line-height: 1.05; letter-spacing: -0.02em;
   color: var(--text);
 }
-
 .hero-card {
   width: 280px;
   animation: fadeUp 0.9s 0.2s ease both;
@@ -153,7 +136,6 @@ body {
 .hero-stat-divider {
   width: 1px; height: 32px; background: var(--border); flex-shrink: 0;
 }
-
 .photo-upload-btn {
   padding: 8px; background: transparent;
   color: var(--accent); border: 1px solid rgba(111,174,232,0.28);
@@ -162,8 +144,6 @@ body {
   text-align: center;
 }
 .photo-upload-btn:hover { background: var(--accent-s); }
-
-/* Orbit decoration */
 .hero-orbit {
   position: absolute; right: -120px; bottom: -80px;
   width: 500px; height: 500px; opacity: 0.12; pointer-events: none;
@@ -175,8 +155,6 @@ body {
 }
 .ring-1 { animation-duration: 30s; }
 .ring-2 { inset: 80px; border-color: var(--gold); animation-duration: 22s; animation-direction: reverse; }
-
-/* ====== SECTIONS ====== */
 .section { position: relative; z-index: 1; padding: 100px 0; }
 .section-alt {
   background: linear-gradient(180deg, transparent, rgba(111,174,232,0.018) 50%, transparent);
@@ -193,8 +171,6 @@ body {
   font-weight: 300; line-height: 1.15; color: var(--text);
 }
 .section-title em { font-style: italic; color: var(--accent); }
-
-/* ====== ABOUT ====== */
 .about-para {
   color: var(--text-sec); font-size: 14px; font-weight: 300; line-height: 1.85;
 }
@@ -218,8 +194,6 @@ body {
   box-shadow: 0 0 8px var(--green);
   animation: pulseDot 2s ease-in-out infinite;
 }
-
-/* ====== TIMELINE ====== */
 .timeline { position: relative; padding-left: 1px; }
 .timeline::before {
   content: ''; position: absolute;
@@ -248,8 +222,6 @@ body {
 }
 .timeline-sub { font-size: 13px; color: var(--text-sec); margin-bottom: 6px; }
 .timeline-desc { font-size: 13px; color: var(--text-dim); font-weight: 300; }
-
-/* ====== SKILLS ====== */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -285,8 +257,6 @@ body {
   color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase;
   position: relative; z-index: 1;
 }
-
-/* ====== ACHIEVEMENTS ====== */
 .achievement-row {
   display: flex; align-items: flex-start; gap: 20px;
   padding: 20px 24px;
@@ -310,8 +280,6 @@ body {
   padding: 3px 8px; border: 1px solid var(--border); border-radius: 10px;
   white-space: nowrap; letter-spacing: 0.08em; text-transform: uppercase;
 }
-
-/* ====== CERTIFICATES ====== */
 .certs-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -366,8 +334,6 @@ body {
 }
 .cert-card:hover .cert-pdf-overlay { opacity: 1; }
 .cert-pdf-icon { font-size: 32px; }
-
-/* ====== CONTACT ====== */
 .contact-item {
   display: flex; align-items: center; gap: 16px;
   padding: 16px 20px;
@@ -392,8 +358,6 @@ body {
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
   opacity: 0.5;
 }
-
-/* ====== BUTTONS ====== */
 .btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 11px 26px; background: var(--accent); color: var(--bg);
@@ -403,7 +367,6 @@ body {
   letter-spacing: 0.03em;
 }
 .btn-primary:hover { background: #92c4ef; transform: translateY(-2px); box-shadow: 0 8px 28px var(--accent-g); }
-
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 11px 26px; background: transparent; color: var(--text-sec);
@@ -412,7 +375,6 @@ body {
   border: 1px solid var(--border); cursor: pointer; transition: var(--t);
 }
 .btn-ghost:hover { color: var(--text); border-color: var(--border-h); transform: translateY(-2px); }
-
 .add-btn {
   display: inline-flex; align-items: center; gap: 8px;
   margin-top: 28px; padding: 9px 20px;
@@ -422,8 +384,6 @@ body {
   cursor: pointer; transition: var(--t); opacity: 0.75;
 }
 .add-btn:hover { opacity: 1; background: var(--accent-s); }
-
-/* ====== ITEM ACTIONS ====== */
 .item-actions { display: none; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
 .edit-mode .item-actions { display: flex; }
 .action-btn {
@@ -434,16 +394,10 @@ body {
 .action-btn:hover { color: var(--text); border-color: var(--border-h); }
 .action-btn.delete { color: #d06060; border-color: rgba(208,96,96,0.25); }
 .action-btn.delete:hover { background: rgba(208,96,96,0.09); }
-
-/* ====== EDIT ONLY ====== */
 .edit-only { display: none !important; }
 .edit-mode .edit-only { display: flex !important; }
-
-/* ====== INLINE EDIT ====== */
 .edit-mode [data-field] { cursor: pointer; border-radius: 4px; transition: background var(--t); }
 .edit-mode [data-field]:hover { background: rgba(111,174,232,0.07); outline: 1px dashed rgba(111,174,232,0.28); }
-
-/* ====== MODAL ====== */
 .modal-overlay {
   position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
   z-index: 900; display: none; opacity: 0; transition: opacity 0.2s;
@@ -473,8 +427,6 @@ body {
   display: flex; justify-content: flex-end; gap: 12px;
   padding: 16px 24px; border-top: 1px solid var(--border);
 }
-
-/* ====== FORM ====== */
 .form-group { margin-bottom: 15px; }
 .form-label {
   display: block; font-size: 10px; font-family: 'DM Mono', monospace;
@@ -498,8 +450,6 @@ body {
 }
 .form-checkbox-group input[type="checkbox"] { accent-color: var(--accent); width: 15px; height: 15px; }
 .form-checkbox-group label { font-size: 13px; color: var(--text-sec); cursor: pointer; }
-
-/* Upload area */
 .upload-area {
   border: 2px dashed rgba(111,174,232,0.22); border-radius: 12px;
   padding: 28px; text-align: center; cursor: pointer; transition: var(--t);
@@ -516,8 +466,6 @@ body {
   border-radius: 8px; display: flex; align-items: center; gap: 10px;
   font-size: 12px; color: var(--accent); font-family: 'DM Mono', monospace;
 }
-
-/* ====== CERTIFICATE VIEWER ====== */
 .viewer-overlay {
   position: fixed; inset: 0; background: rgba(0,0,0,0.88);
   backdrop-filter: blur(8px); z-index: 950;
@@ -540,8 +488,6 @@ body {
 .viewer-body { flex: 1; overflow-y: auto; padding: 24px; }
 .viewer-img { width: 100%; border-radius: 8px; object-fit: contain; max-height: 600px; }
 .viewer-pdf { width: 100%; height: 580px; border: none; border-radius: 8px; }
-
-/* ====== EDIT TOOLBAR ====== */
 .edit-toolbar {
   position: fixed; bottom: 24px; right: 24px; z-index: 500;
   display: flex; align-items: center; gap: 10px;
@@ -557,16 +503,11 @@ body {
 .save-btn:hover { background: #92c4ef; }
 .exit-btn { background: transparent; color: var(--text-sec); border: 1px solid var(--border); }
 .exit-btn:hover { color: var(--text); border-color: var(--border-h); }
-
-/* ====== ANIMATIONS ====== */
 @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
 @keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(360deg); } }
 @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
 @keyframes pulseDot { 0%,100% { box-shadow:0 0 8px var(--green); } 50% { box-shadow:0 0 16px var(--green); } }
-
 .anim-pulse { animation: pulse 3s ease-in-out infinite; }
-
-/* ====== PORTFOLIO TABS ====== */
 .portfolio-tabs {
   display: flex;
   gap: 4px;
@@ -596,11 +537,8 @@ body {
   box-shadow: 0 4px 16px var(--accent-g);
 }
 .tab-icon { font-size: 14px; }
-
 .tab-panel { transition: opacity 0.25s ease; }
 .tab-panel.hidden { display: none; }
-
-/* ====== PROJECT CARDS ====== */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -655,8 +593,6 @@ body {
   transition: var(--t); font-family: 'DM Mono', monospace;
 }
 .project-link:hover { color: var(--accent); border-color: rgba(111,174,232,0.3); }
-
-/* ====== RESPONSIVE ====== */
 @media (max-width: 768px) {
   .nav { padding: 16px 24px; }
   .nav.scrolled { padding: 12px 24px; }
@@ -671,15 +607,11 @@ body {
   .projects-grid { grid-template-columns: 1fr; }
   .portfolio-tabs { width: 100%; justify-content: center; }
 }
-/* ============================================
-   SLIDE UP ANIMATION
-   ============================================ */
 .hero-slide-wrap {
   display: flex;
   align-items: center;
   gap: 10px;
   height: 28px;
-  
 }
 .hero-slide-prefix {
   font-family: 'DM Mono', monospace;
@@ -708,10 +640,6 @@ body {
   letter-spacing: 0.04em;
   white-space: nowrap;
 }
-
-/* ============================================
-   SKILL BAR CARDS
-   ============================================ */
 .skill-bar-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.07);
@@ -787,10 +715,6 @@ body {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 14px;
 }
-
-/* ============================================
-   PROJECT FILTER BUTTONS
-   ============================================ */
 .project-filters {
   display: flex;
   flex-wrap: wrap;
@@ -818,10 +742,6 @@ body {
   border-color: rgba(126,184,247,0.5);
   color: #7eb8f7;
 }
-
-/* ============================================
-   MATA KULIAH TAGS
-   ============================================ */
 .info-card-full {
   flex-direction: column !important;
   align-items: flex-start !important;
@@ -842,10 +762,6 @@ body {
   color: #7eb8f7;
   letter-spacing: 0.04em;
 }
-
-/* ============================================
-   CONTACT FORM CARD
-   ============================================ */
 .contact-form-card {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.08);
@@ -872,20 +788,12 @@ body {
   min-height: 20px;
   margin-top: 10px;
 }
-
-/* ============================================
-   HERO PHOTO — BLACKHOLE EFFECT (DRAMATIC)
-   ============================================ */
-
-/* Wrapper area dengan pseudo-elements untuk ring */
 .hero-photo-area {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-/* Accretion disk — elips miring seperti blackhole asli */
 .bh-ring {
   position: absolute;
   top: 50%; left: 50%;
@@ -912,8 +820,6 @@ body {
   z-index: 2;
   filter: blur(1px);
 }
-
-/* Outer glow halo */
 .bh-glow {
   position: absolute;
   top: 50%; left: 50%;
@@ -931,7 +837,6 @@ body {
   pointer-events: none;
   z-index: 0;
 }
-
 @keyframes bhDiskSpin {
   from { transform: translate(-50%, -50%) rotateX(75deg) rotate(0deg); }
   to   { transform: translate(-50%, -50%) rotateX(75deg) rotate(360deg); }
@@ -940,8 +845,6 @@ body {
   0%,100% { opacity: 0.7; transform: translate(-50%,-50%) scale(1); }
   50%     { opacity: 1.0; transform: translate(-50%,-50%) scale(1.05); }
 }
-
-/* Foto bulat, di atas ring */
 .hero-photo-wrap {
   width: 260px !important;
   height: 260px !important;
@@ -955,8 +858,6 @@ body {
   z-index: 3;
 }
 #heroPhoto { border-radius: 50% !important; }
-
-/* Gravitational lensing — tepi foto gelap dramatic */
 .hero-photo-wrap::after {
   content: '';
   position: absolute;
@@ -969,10 +870,6 @@ body {
   pointer-events: none;
   z-index: 4;
 }
-
-/* ============================================
-   FLOATING SKILL BADGES
-   ============================================ */
 .hero-card-inner {
   position: relative;
 }
@@ -997,17 +894,12 @@ body {
 .float-badge-4 { top: 75%; right: -18%; animation: floatBadge4 4.2s ease-in-out infinite; }
 .float-badge-5 { top: -5%; right: 10%;  animation: floatBadge5 3.8s ease-in-out infinite; }
 .float-badge-6 { bottom: 8%; left: 5%;  animation: floatBadge6 4.7s ease-in-out infinite; }
-
 @keyframes floatBadge1 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.85;} 50%{transform:translateY(-10px) translateX(3px);opacity:1;} }
 @keyframes floatBadge2 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.75;} 50%{transform:translateY(-8px) translateX(-4px);opacity:1;} }
 @keyframes floatBadge3 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.9;} 50%{transform:translateY(-12px) translateX(2px);opacity:1;} }
 @keyframes floatBadge4 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.8;} 50%{transform:translateY(-9px) translateX(-3px);opacity:1;} }
 @keyframes floatBadge5 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.85;} 50%{transform:translateY(8px) translateX(4px);opacity:1;} }
 @keyframes floatBadge6 { 0%,100%{transform:translateY(0px) translateX(0px);opacity:0.75;} 50%{transform:translateY(-7px) translateX(-2px);opacity:1;} }
-
-/* ============================================
-   SOCIAL ICONS
-   ============================================ */
 .hero-socials {
   display: flex;
   gap: 10px;
@@ -1031,10 +923,6 @@ body {
   background: rgba(126,184,247,0.08);
   transform: translateY(-2px);
 }
-
-/* ============================================
-   CV DOWNLOAD BUTTON
-   ============================================ */
 .btn-cv {
   display: inline-flex;
   align-items: center;
@@ -1055,10 +943,6 @@ body {
   border-color: rgba(184,152,90,0.7);
   transform: translateY(-1px);
 }
-
-/* ============================================
-   TYPING EFFECT
-   ============================================ */
 .hero-slide-wrap {
   display: flex;
   align-items: center;
@@ -1090,20 +974,12 @@ body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-
-/* ============================================
-   HERO PHOTO AREA — no card box
-   ============================================ */
 .hero-card, .hero-card-inner, .hero-card-stats {
   background: none !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
 }
-
-/* ============================================
-   FLOATING BADGES — bigger, smooth, no patchy
-   ============================================ */
 .float-badge {
   position: absolute;
   font-family: 'DM Mono', monospace;
@@ -1126,7 +1002,6 @@ body {
 .float-badge-2 { top: 30%; right: -26%; animation: floatBadge2 4.5s ease-in-out infinite; }
 .float-badge-3 { top: 58%; left: -26%; animation: floatBadge3 5.0s ease-in-out infinite; }
 .float-badge-4 { top: 78%; right: -22%; animation: floatBadge4 4.2s ease-in-out infinite; }
-
 .badge-fade-out { opacity: 0 !important; transform: translateY(-6px) scale(0.9) !important; }
 .badge-fade-in  { animation: badgePop 0.5s ease forwards; }
 @keyframes badgePop {
@@ -1137,10 +1012,6 @@ body {
 @keyframes floatBadge2 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
 @keyframes floatBadge3 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
 @keyframes floatBadge4 { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-9px);} }
-
-/* ============================================
-   EDUCATION TIMELINE — visual redesign
-   ============================================ */
 .edu-timeline {
   display: flex;
   flex-direction: column;
@@ -1244,8 +1115,6 @@ body {
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 .edu-actions { margin-top: 10px; display: flex; gap: 8px; }
-
-/* Mobile responsive */
 @media (max-width: 640px) {
   .hero-photo-wrap { width: 220px !important; height: 270px !important; }
   .float-badge { font-size: 11px !important; padding: 6px 13px !important; }
@@ -1255,10 +1124,6 @@ body {
   .float-badge-4 { right: -10%; }
   .edu-card-top { flex-direction: column; align-items: flex-start; }
 }
-
-/* ============================================
-   HERO PHOTO MOBILE
-   ============================================ */
 .hero-photo-wrap-mobile {
   width: 180px;
   height: 180px;
@@ -1286,7 +1151,6 @@ body {
   pointer-events: none;
   z-index: 4;
 }
-/* Blackhole ring untuk mobile */
 .mobile-photo-section {
   position: relative;
   display: flex;
